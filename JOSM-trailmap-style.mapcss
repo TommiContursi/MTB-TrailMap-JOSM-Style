@@ -1,313 +1,283 @@
 meta
 {
-    title: "Trailmap Inspired Style"; /* Style title */
-    description: "visualize mtb:scale of objects"; /* Style description */
-    version: 1_2024-07-28; /* Version of the style */
-    author: "Tommi Contursi"; /* Author name */
-    link: "https://github.com/TommiContursi/JOSM-Style"; /* Link to the author's website or information */
-    min-josm-version: 7110; /* Minimum JOSM version required */
+    title: "Trailmap Inspired Style";
+    description: "visualize mtb:scale of objects";
+    version: 1_2024-07-28;
+    author: "Tommi Contursi";
+    link: "https://github.com/TommiContursi/JOSM-Style";
+    min-josm-version: 7110;
 }
 
 meta[lang=en]
 {
-    title: "Trailmap Style"; /* English title */
-    description: "JOSM Style"; /* English description */
+    title: "Trailmap Style";
+    description: "JOSM Style";
 }
 
 /* Basic canvas background color */
 canvas
 {
-    fill-color: #606060; /* Background color of the map */
+    fill-color: #606060;
 }
 
 /* Node styles for different zoom levels */
 node
 {
-    symbol-shape: circle; /* Shape of the node symbol */
-    symbol-fill-color: darkgrey; /* Fill color of the node symbol */
-    symbol-stroke-color: lightgreen; /* Stroke color of the node symbol */
+    symbol-shape: circle;
+    symbol-fill-color: darkgrey;
+    symbol-stroke-color: lightgreen;
 }
 node|z-15
 {
-    symbol-size: 0.1; /* Size of the node symbol at zoom level -15 */
+    symbol-size: 0.1;
 }
 node|z16
 {
-    symbol-size: 2; /* Size of the node symbol at zoom level 16 */
+    symbol-size: 2;
 }
 node|z17
 {
-    symbol-size: 3; /* Size of the node symbol at zoom level 17 */
-    symbol-stroke-width: 1; /* Stroke width of the node symbol at zoom level 17 */
+    symbol-size: 3;
+    symbol-stroke-width: 1;
 }
 node|z18-
 {
-    symbol-size: 4; /* Size of the node symbol at zoom level 18 and above */
-    symbol-stroke-width: 1; /* Stroke width of the node symbol at zoom level 18 and above */
+    symbol-size: 4;
+    symbol-stroke-width: 1;
 }
 node:connection
 {
-    symbol-fill-color: yellow; /* Fill color for connection nodes */
+    symbol-fill-color: yellow;
 }
 
 /* Highway styles for cycleway, track, and path */
 way[highway=~/track|path/]
 {
-    color: #fff; /* Color of the track and path highways */
-    width: 3; /* Width of the track and path highways */
-    dashes: 5,5; /* Dash pattern for the track and path highways */
-    right-casing-color: #ffffff00; /* Right casing color (transparent) */
-    left-casing-color: #ffffff00; /* Left casing color (transparent) */
+    color: #000;
+    width: 3;
+    dashes: 7, 5;
+    casing-width: 2;
+    right-casing-color: #ffffff00;
+    left-casing-color: #ffffff00;
+    left-casing-width: 4;
+    right-casing-width: 4;
+    left-casing-offset: 3;
+}
+way[highway=track]
+{
+    color: #000;
+    dashes: 15, 5;
+    right-casing-color: #ffffff00;
+    left-casing-color: #ffffff00;
+    width: 4;
+    casing-width: 3;
+    left-casing-width: 8;
+    right-casing-width: 10;
+    left-casing-offset: 4;
 }
 way[highway=cycleway]
 {
-    color: #3146d7; /* Color of the cycleway highways */
-    width: 4; /* Width of the cycleway highways */
-    dashes: none; /* No dash pattern for cycleway highways */
+    color: #3146d7;
+    width: 4;
+    dashes: none;
 }
 way[highway=footway]
 {
-    color: #a43820; /* Color of the footway highways */
-    width: 4; /* Width of the footway highways */
-    dashes: none; /* No dash pattern for footway highways */
+    color: #a43820;
+    width: 4;
+    dashes: 5, 5;
 }
 
 /* MTB scale based styles */
-way[mtb:scale="0-"]
-{
-    color: #50d6eb; /* Color for MTB scale 0- */
-}
-way[mtb:scale=0]
-{
-    color: #75e009; /* Color for MTB scale 0 */
-}
-way[mtb:scale=1]
-{
-    color: #e3e800; /* Color for MTB scale 1 */
-}
-way[mtb:scale=2]
-{
-    color: #feb13e; /* Color for MTB scale 2 */
-}
-way[mtb:scale=3]
-{
-    color: #ff4454; /* Color for MTB scale 3 */
-}
-way[mtb:scale=4]
-{
-    color: #f20bab; /* Color for MTB scale 4 */
-}
-way[mtb:scale=5]
-{
-    color: #bf1cf5; /* Color for MTB scale 5 */
-}
-way[mtb:scale=6]
-{
-    color: #8100ac; /* Color for MTB scale 6 */
+way[mtb:scale] {
+    casing-color: eval(
+        tag("mtb:scale") == "0-" ? "#50d6eb" :
+        tag("mtb:scale") == "0" ? "#75e009" :
+        tag("mtb:scale") == "1" ? "#e3e800" :
+        tag("mtb:scale") == "2" ? "#feb13e" :
+        tag("mtb:scale") == "3" ? "#ff4454" :
+        tag("mtb:scale") == "4" ? "#f20bab" :
+        tag("mtb:scale") == "5" ? "#bf1cf5" :
+        tag("mtb:scale") == "6" ? "#8100ac" : "#ffffff"
+    );
 }
 
 /* Width based on track width */
-way[width<0.6]
-{
-    width: 4; /* Width for tracks less than 0.6m */
-    left-casing-width: 4; /* Left casing width for tracks less than 0.6m */
-    right-casing-width: 4; /* Right casing width for tracks less than 0.6m */
+way[width<0.6] {
+    width: 2;
+    casing-width: 1;
+    left-casing-width: 3;
+    right-casing-width: 4;
+    left-casing-offset: 2;
 }
-way[width>=0.6][width<0.9]
-{
-    width: 6; /* Width for tracks between 0.6m and 0.9m */
-    left-casing-width: 6; /* Left casing width for tracks between 0.6m and 0.9m */
-    right-casing-width: 6; /* Right casing width for tracks between 0.6m and 0.9m */
+way[width>=0.6][width<0.9] {
+    width: 2;
+    casing-width: 2;
+    left-casing-width: 4;
+    right-casing-width: 6;
+    left-casing-offset: 3;
 }
-way[width>=0.9][width<1.8]
-{
-    width: 8; /* Width for tracks between 0.9m and 1.8m */
-    left-casing-width: 8; /* Left casing width for tracks between 0.9m and 1.8m */
-    right-casing-width: 8; /* Right casing width for tracks between 0.9m and 1.8m */
+way[width>=0.9][width<1.8] {
+    width: 3;
+    casing-width: 2;
+    left-casing-width: 6;
+    right-casing-width: 8;
+    left-casing-offset: 4;
 }
-way[width>=1.8]
-{
-    width: 10; /* Width for tracks 1.8m or wider */
-    left-casing-width: 10; /* Left casing width for tracks 1.8m or wider */
-    right-casing-width: 10; /* Right casing width for tracks 1.8m or wider */
+way[width>=1.8] {
+    width: 4;
+    casing-width: 3;
+    left-casing-width: 8;
+    right-casing-width: 10;
+    left-casing-offset: 4;
 }
 
 /* Visibility based styles */
-way[trail_visibility=excellent]
-{
-    dashes: 20, 10; /* Dash pattern for excellent visibility */
-}
-way[trail_visibility=good]
-{
-    dashes: 20, 10; /* Dash pattern for good visibility */
-}
-way[trail_visibility=intermediate]
-{
-    dashes: 5, 5; /* Dash pattern for intermediate visibility */
-}
-way[trail_visibility=bad]
-{
-    dashes: 5, 5; /* Dash pattern for bad visibility */
-}
-way[trail_visibility=horrible]
-{
-    dashes: 5, 5; /* Dash pattern for horrible visibility */
-}
-way[trail_visibility=no]
-{
-    dashes: 5, 5; /* Dash pattern for no visibility */
-}
+way[trail_visibility=excellent] { dashes: 8, 5; }
+way[trail_visibility=good] { dashes: 8, 5; }
+way[trail_visibility=intermediate] { dashes: 6, 5; casing-opacity: 0.75; casing-dashes-opacity: 0.75;}
+way[trail_visibility=bad] { dashes: 6, 5; casing-opacity: 0.5; casing-dashes-opacity: 0.5;}
+way[trail_visibility=horrible] { dashes: 6, 5; casing-opacity: 0.5; opacity: 0.5;}
+way[trail_visibility=no] { dashes: 6, 5; casing-opacity: 0.25; casing-dashes-opacity: 0.25;}
 
 /* Obstacle based styles */
-way[obstacle="vegetation"]
-{
-    right-casing-color: #56aa00; /* Right casing color for vegetation obstacles */
-    right-casing-dashes: 3,7; /* Dash pattern for vegetation obstacles */
+way[obstacle="vegetation"] {
+    right-casing-color: #56aa00;
+    right-casing-dashes: 3, 7;
+    right-casing-offset: 5;
 }
-way[obstacle="mud"]
-{
-    right-casing-dashes: 3,7; /* Dash pattern for mud obstacles */
-    right-casing-color: #50d6eb; /* Right casing color for mud obstacles */
+way[obstacle="mud"] {
+    right-casing-color: #50d6eb;
+    right-casing-dashes: 3, 7;
+    right-casing-offset: 5;
 }
 
 /* Uphill scale based styles */
-way|z15-[mtb:scale:uphill=1]
-{
-    left-casing-color: black; /* Left casing color for uphill scale 1 */
-    left-casing-dashes-background-opacity: 0.5; /* Background opacity for uphill scale 1 */
-    left-casing-dashes-background-color: #e3e800; /* Background color for uphill scale 1 */
-    left-casing-dashes: 3,15; /* Dash pattern for uphill scale 1 */
+way|z15-[mtb:scale:uphill=1] {
+    left-casing-color: #e3e800;
+    left-casing-dashes-background-opacity: 0.25;
+    left-casing-dashes-background-color: #e3e800;
+    left-casing-dashes: 3, 15;
 }
-way|z15-[mtb:scale:uphill=2]
-{
-    left-casing-color: #000; /* Left casing color for uphill scale 2 */
-    left-casing-dashes-background-opacity: 0.5; /* Background opacity for uphill scale 2 */
-    left-casing-dashes-background-color: #feb13e; /* Background color for uphill scale 2 */
-    left-casing-dashes: 3,4,3,15; /* Dash pattern for uphill scale 2 */
+way|z15-[mtb:scale:uphill=2] {
+    left-casing-color: #feb13e;
+    left-casing-dashes-background-opacity: 0.25;
+    left-casing-dashes-background-color: #feb13e;
+    left-casing-dashes: 3, 4, 3, 15;
 }
-way|z15-[mtb:scale:uphill=3]
-{
-    left-casing-color: black; /* Left casing color for uphill scale 3 */
-    left-casing-dashes-background-opacity: 0.5; /* Background opacity for uphill scale 3 */
-    left-casing-dashes-background-color: #ff4454; /* Background color for uphill scale 3 */
-    left-casing-dashes: 3,4,3,4,3,17; /* Dash pattern for uphill scale 3 */
+way|z15-[mtb:scale:uphill=3] {
+    left-casing-color: #ff4454;
+    left-casing-dashes-background-opacity: 0.25;
+    left-casing-dashes-background-color: #ff4454;
+    left-casing-dashes: 3, 4, 3, 4, 3, 17;
 }
-way|z15-[mtb:scale:uphill=4]
-{
-    left-casing-color: black; /* Left casing color for uphill scale 4 */
-    left-casing-dashes-background-opacity: 0.5; /* Background opacity for uphill scale 4 */
-    left-casing-dashes-background-color: #f20bab; /* Background color for uphill scale 4 */
-    left-casing-dashes: 3,4,3,4,3,4,3,18; /* Dash pattern for uphill scale 4 */
+way|z15-[mtb:scale:uphill=4] {
+    left-casing-color: #f20bab;
+    left-casing-dashes-background-opacity: 0.25;
+    left-casing-dashes-background-color: #f20bab;
+    left-casing-dashes: 3, 4, 3, 4, 3, 4, 3, 18;
 }
-way|z15-[mtb:scale:uphill=5]
-{
-    left-casing-color: black; /* Left casing color for uphill scale 5 */
-    left-casing-dashes-background-opacity: 0.5; /* Background opacity for uphill scale 5 */
-    left-casing-dashes-background-color: #f20bab; /* Background color for uphill scale 5 */
-    left-casing-dashes: 3,4,3,4,3,4,3,4,3,20; /* Dash pattern for uphill scale 5 */
+way|z15-[mtb:scale:uphill=5] {
+    left-casing-color: #f20bab;
+    left-casing-dashes-background-opacity: 0.25;
+    left-casing-dashes-background-color: #f20bab;
+    left-casing-dashes: 3, 4, 3, 4, 3, 4, 3, 4, 3, 20;
 }
 
 /* Minor roads */
-way[highway=~/unclassified|residential|tertiary|service/]
-{
-    color: white; /* Color for minor roads */
-    opacity: 0.5; /* Opacity for minor roads */
-    casing-color: #684718; /* Casing color for minor roads */
-    casing-width: 2; /* Casing width for minor roads */
+way[highway=~/unclassified|residential|tertiary|service/] {
+    color: white;
+    opacity: 0.5;
+    casing-color: #684718;
+    casing-width: 2;
 }
-way|z-14[highway=~/unclassified|residential|tertiary|service/]
-{
-    width: 4; /* Width for minor roads at zoom level -14 */
+
+way|z-14[highway=~/unclassified|residential|tertiary|service/] {
+    width: 4;
 }
-way|z15-16[highway=~/unclassified|residential|tertiary|service/]
-{
-    width: 6; /* Width for minor roads at zoom levels 15-16 */
+
+way|z15-16[highway=~/unclassified|residential|tertiary|service/] {
+    width: 6;
 }
-way|z17-[highway=~/unclassified|residential|tertiary|service/]
-{
-    width: 10; /* Width for minor roads at zoom level 17 and above */
+
+way|z17-[highway=~/unclassified|residential|tertiary|service/] {
+    width: 10;
 }
 
 /* Regional and major roads */
-way[highway=~/motorway|trunk|primary|secondary/]
-{
-    color: #E6DEBE; /* Color for regional and major roads */
-    opacity: 0.5; /* Opacity for regional and major roads */
-    casing-color: #684718; /* Casing color for regional and major roads */
-    casing-width: 2; /* Casing width for regional and major roads */
+way[highway=~/motorway|trunk|primary|secondary/] {
+    color: #E6DEBE;
+    opacity: 0.5;
+    casing-color: #684718;
+    casing-width: 2;
 }
-way|z-14[highway=~/motorway|trunk|primary|secondary/]
-{
-    width: 6; /* Width for regional and major roads at zoom level -14 */
+
+way|z-14[highway=~/motorway|trunk|primary|secondary/] {
+    width: 6;
 }
-way|z15-16[highway=~/motorway|trunk|primary|secondary/]
-{
-    width: 8; /* Width for regional and major roads at zoom levels 15-16 */
+
+way|z15-16[highway=~/motorway|trunk|primary|secondary/] {
+    width: 8;
 }
-way|z17-[highway=~/motorway|trunk|primary|secondary/]
-{
-    width: 12; /* Width for regional and major roads at zoom level 17 and above */
+
+way|z17-[highway=~/motorway|trunk|primary|secondary/] {
+    width: 12;
 }
 
 /* Waterways */
-way[waterway]
-{
-    color: #6CCEE4; /* Color for waterways */
-    width: 3; /* Width for waterways */
+way[waterway] {
+    color: #6CCEE4;
+    width: 3;
 }
 
 /* Bicycle route relation underlay */
-relation[type=route][route=~/bicycle|mtb/][network=ncn] > way::relation_underlay
-{
-    z-index: -200; /* Z-index for national bicycle routes */
-    width: 15; /* Width for national bicycle routes */
-    color: red; /* Color for national bicycle routes */
-    opacity: 0.15; /* Opacity for national bicycle routes */
-    linecap: none; /* Line cap style for national bicycle routes */
+relation[type=route][route=~/bicycle|mtb/][network=ncn] > way::relation_underlay {
+    z-index: -200;
+    width: 15;
+    color: red;
+    opacity: 0.15;
+    linecap: none;
 }
-relation[type=route][route=~/bicycle|mtb/][network=rcn] > way::relation_underlay
-{
-    z-index: -200; /* Z-index for regional bicycle routes */
-    width: 15; /* Width for regional bicycle routes */
-    color: cyan; /* Color for regional bicycle routes */
-    opacity: 0.15; /* Opacity for regional bicycle routes */
-    linecap: none; /* Line cap style for regional bicycle routes */
+
+relation[type=route][route=~/bicycle|mtb/][network=rcn] > way::relation_underlay {
+    z-index: -200;
+    width: 15;
+    color: cyan;
+    opacity: 0.15;
+    linecap: none;
 }
-relation[type=route][route=~/bicycle|mtb/][network=lcn] > way::relation_underlay
-{
-    z-index: -200; /* Z-index for local bicycle routes */
-    width: 15; /* Width for local bicycle routes */
-    color: blue; /* Color for local bicycle routes */
-    opacity: 0.15; /* Opacity for local bicycle routes */
-    linecap: none; /* Line cap style for local bicycle routes */
+
+relation[type=route][route=~/bicycle|mtb/][network=lcn] > way::relation_underlay {
+    z-index: -200;
+    width: 15;
+    color: blue;
+    opacity: 0.15;
+    linecap: none;
 }
 
 /* Text display for mtb:scale */
-way|z14-[mtb:scale]
-{
-    font-family: Arial; /* Font family for mtb:scale text */
-    text: concat("S", tag("mtb:scale")); /* Text content for mtb:scale */
-    text-color: black; /* Text color for mtb:scale */
-    font-size: 14; /* Font size for mtb:scale */
-    font-weight: bold; /* Font weight for mtb:scale */
-    text-offset: 10; /* Text offset for mtb:scale */
-    text-position: line; /* Text position for mtb:scale */
-    z-index: 2; /* Z-index for mtb:scale text */
-    text-halo-color: white; /* Text halo color for mtb:scale */
-    text-halo-radius: 1; /* Text halo radius for mtb:scale */
+way|z14-[mtb:scale] {
+    font-family: Arial;
+    text: concat("S", tag("mtb:scale"));
+    text-color: black;
+    font-size: 14;
+    font-weight: bold;
+    text-offset: 10;
+    text-position: line;
+    z-index: 2;
+    text-halo-color: white;
+    text-halo-radius: 1;
 }
 
 /* Text display for mtb:scale:uphill */
-way|z14-[mtb:scale][mtb:scale:uphill]
-{
-    font-family: Arial; /* Font family for mtb:scale:uphill text */
-    text: concat("S", tag("mtb:scale"), " ", "/ S", tag("mtb:scale:uphill")); /* Text content for mtb:scale:uphill */
-    text-color: black; /* Text color for mtb:scale:uphill */
-    font-size: 14; /* Font size for mtb:scale:uphill */
-    font-weight: bold; /* Font weight for mtb:scale:uphill */
-    text-offset: -10; /* Text offset for mtb:scale:uphill */
-    text-position: line; /* Text position for mtb:scale:uphill */
-    z-index: 2; /* Z-index for mtb:scale:uphill text */
-    text-halo-color: white; /* Text halo color for mtb:scale:uphill */
-    text-halo-radius: 1; /* Text halo radius for mtb:scale:uphill */
+way|z14-[mtb:scale][mtb:scale:uphill] {
+  text: concat("S", tag("mtb:scale"), " ", "/ S", tag("mtb:scale:uphill"));
+  text-color: black;
+  font-size: 14;
+  font-weight: bold;
+  text-offset: -10;
+  text-position: line;
+  z-index: 2;
+  text-halo-color: white;
+  text-halo-radius: 1;
 }
