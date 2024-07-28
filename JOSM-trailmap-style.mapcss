@@ -1,0 +1,271 @@
+meta
+{
+    title: "Trailmap Inspired Style";
+    description: "visualize mtb:scale of objects";
+    version: 1_2024-07-28;
+    author: "Tommi Contursi";
+    link: "-";
+    min-josm-version: 7110;
+}
+
+meta[lang=en]
+{
+    title: "Trailmap Style";
+    description: "JOSM Style";
+}
+
+/* basic geometry */
+canvas
+{
+    fill-color: #606060;
+}
+
+node
+{
+    symbol-shape: circle;
+    symbol-fill-color: darkgrey;
+    symbol-stroke-color: lightgreen;
+}
+node|z-15
+{
+    symbol-size: 0.1;
+}
+node|z16
+{
+    symbol-size: 2;
+}
+node|z17
+{
+    symbol-size: 3;
+    symbol-stroke-width: 1;
+}
+node|z18-
+{
+    symbol-size: 4;
+    symbol-stroke-width: 1;
+}
+node:connection
+{
+    symbol-fill-color: yellow;
+}
+
+/* highway=* tag styles */
+way[highway=~/cycleway|track|path/]
+{
+    color: #684718;
+    width: 4;
+}
+
+/* MTB INFOS =* tag styles */
+way[mtb:scale="0-"]
+{
+    color: #50d6eb; /* Updated color */
+}
+way[mtb:scale=0]
+{
+    color: #75e009; /* Updated color */
+}
+way[mtb:scale=1]
+{
+    color: #e3e800; /* Updated color */
+}
+way[mtb:scale=2]
+{
+    color: #feb13e; /* Updated color */
+}
+way[mtb:scale=3]
+{
+    color: #ff4454; /* Updated color */
+}
+way[mtb:scale=4]
+{
+    color: #f20bab; /* Updated color */
+}
+way[mtb:scale=5]
+{
+    color: #bf1cf5; /* Updated color */
+}
+way[mtb:scale=6]
+{
+    color: #8100ac; /* Updated color */
+}
+
+/* Width based on track width */
+way[width<0.6]
+{
+    width: 2;
+}
+way[width>=0.6][width<=1.7]
+{
+    width: 4;
+}
+way[width>1.7]
+{
+    width: 6;
+}
+
+/* Visibility based styles */
+way[visibility="bad"]
+{
+    opacity: 0.5;
+}
+way[visibility="intermediate"]
+{
+    opacity: 0.75;
+}
+way[visibility="good"]
+{
+    opacity: 1;
+}
+
+/* Obstacle based styles */
+way[obstacle="vegetation"]
+{
+    /*dashes: list(7,7);
+    dashes-background-color: #56aa00;*/
+    left-casing-color: #56aa00;
+    left-casing-width: 8;
+    left-casing-dashes: list(3,7);
+}
+way[obstacle="mud"]
+{
+    right-casing-width: 8;
+    right-casing-dashes: list(3,7);
+    right-casing-color: #50d6eb;
+}
+
+/* Uphill scale based styles */
+way|z15-[mtb:scale:uphill=1]
+{
+    casing-color: black;
+    casing-width: 5;
+    casing-dashes: 1.4,15;
+}
+way|z15-[mtb:scale:uphill=2]
+{
+    casing-color: black;
+    casing-width: 5;
+    casing-dashes: 1.4,3,1.4,15;
+}
+way|z15-[mtb:scale:uphill=3]
+{
+    casing-color: black;
+    casing-width: 6;
+    casing-dashes: 1.4,3,1.4,3,1.4,17;
+}
+way|z15-[mtb:scale:uphill=4]
+{
+    casing-color: black;
+    casing-width: 5;
+    casing-dashes: 1.4,3,1.4,3,1.4,3,1.4,18;
+}
+way|z15-[mtb:scale:uphill=5]
+{
+    casing-color: black;
+    casing-width: 5;
+    casing-dashes: 1.4,3,1.4,3,1.4,3,1.4,3,1.4,20;
+}
+
+/* Display of minor roads that are usually usable by bike */
+way[highway=~/unclassified|residential|tertiary|service/]
+{
+    color: white;
+    opacity: 0.5;
+    casing-color: #684718;
+    casing-width: 2;
+}
+  way|z-14[highway=~/unclassified|residential|tertiary|service/]
+{
+    width: 4;
+}
+  way|z15-16[highway=~/unclassified|residential|tertiary|service/]
+{
+    width: 6;
+}
+  way|z17-[highway=~/unclassified|residential|tertiary|service/]
+{
+    width: 10;
+}
+
+/* Display of regional and big roads */
+way[highway=~/motorway|trunk|primary|secondary/]
+{
+    color: #E6DEBE;
+    opacity: 0.5;
+    casing-color: #684718;
+    casing-width: 2;
+}
+  way|z-14[highway=~/motorway|trunk|primary|secondary/]
+{
+    width: 6;
+}
+  way|z15-16[highway=~/motorway|trunk|primary|secondary/]
+{
+    width: 8;
+}
+  way|z17-[highway=~/motorway|trunk|primary|secondary/]
+{
+    width: 12;
+}
+
+way[waterway]
+{
+    color: #6CCEE4;
+    width: 3;
+}
+
+/* add a background glow for ways taking part in a bicycle route relation - similar to what is done in potlatch2.mapcss */
+relation[type=route][route=~/bicycle|mtb/][network=ncn] > way::relation_underlay
+{
+    z-index: -200;
+    width: 15;
+    color: red;
+    opacity: 0.15;
+    linecap: none;
+}
+relation[type=route][route=~/bicycle|mtb/][network=rcn] > way::relation_underlay
+{
+    z-index: -200;
+    width: 15;
+    color: cyan;
+    opacity: 0.15;
+    linecap: none;
+}
+relation[type=route][route=~/bicycle|mtb/][network=lcn] > way::relation_underlay
+{
+    z-index: -200;
+    width: 15;
+    color: blue;
+    opacity: 0.15;
+    linecap: none;
+}
+
+/* Text display for mtb:scale */
+way|z14-[mtb:scale]
+{
+    font-family: Arial;
+    text: concat("S", tag("mtb:scale"));
+    text-color: black;
+    font-size: 14;
+    font-weight: bold;
+    text-offset: 7;
+    text-position: line;
+    z-index: 2;
+    text-halo-color: white;
+    text-halo-radius: 1;
+}
+
+/* Text display for mtb:scale:uphill */
+way|z14-[mtb:scale][mtb:scale:uphill]
+{
+    font-family: Arial;
+    text: concat("S", tag("mtb:scale"), " ", "/ S", tag("mtb:scale:uphill"));
+    text-color: black;
+    font-size: 14;
+    font-weight: bold;
+    text-offset: -7;
+    text-position: line;
+    z-index: 2;
+    text-halo-color: white;
+    text-halo-radius: 1;
+}
