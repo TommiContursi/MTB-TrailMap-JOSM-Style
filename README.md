@@ -2,7 +2,13 @@
 
 ## Introduction
 
-The Trailmap Inspired Style for JOSM brings the look and feel of the popular [Trailmap.fi](https://web.trailmap.fi) map service into the JOSM editor. This style is particularly beneficial for users, especially in Finland, who frequently contribute to OpenStreetMap (OSM) and want to ensure their updates will reflect accurately on the Trailmap platform. By replicating the visual style of Trailmap, users can immediately see how their edits and updates will appear, maintaining consistency and accuracy in map data. This style is designed to work seamlessly with JOSM's default styles, such as the [JOSM Standard](https://josm.openstreetmap.de/browser/trunk/resources/styles/standard/elemstyles.mapcss) and [Potlatch 2](https://josm.openstreetmap.de/wiki/Styles/Potlatch2) styles, ensuring it can be used alongside other popular styles without conflicts.
+The Trailmap Inspired Style for JOSM brings the look and feel of the popular [Trailmap.fi](https://web.trailmap.fi) map service into the JOSM editor. This style is particularly beneficial for users, especially in Finland, who frequently contribute to OpenStreetMap (OSM) and want to ensure their updates will reflect accurately on the Trailmap platform. By replicating the visual style of Trailmap, users can immediately see how their edits and updates will appear, maintaining consistency and accuracy in map data.
+
+While this style draws heavy inspiration from Trailmap.fi, it is important to note that it is not an exact copy nor created based on their code. All visual aspects have been approximated through visual inspection to best match the appearance of Trailmap.fi. Consequently, certain elements may be rendered differently, and users should not expect a perfect one-to-one replication. Despite these differences, this style aims to provide a close approximation that will be helpful for many map editors.
+
+In addition to mimicking the visual style, this JOSM style includes extra features not found on Trailmap.fi, such as the uphill difficulty scale and text labels for MTB difficulty. These enhancements offer additional functionality for users to visualize more detailed aspects of trail data.
+
+This style is designed to work seamlessly with JOSM's default styles, such as the [JOSM Standard](https://josm.openstreetmap.de/browser/trunk/resources/styles/standard/elemstyles.mapcss) and [Potlatch 2](https://josm.openstreetmap.de/wiki/Styles/Potlatch2) styles, ensuring it can be used alongside other popular styles without conflicts.
 
 ### Purpose and Benefits
 
@@ -25,10 +31,7 @@ The primary purpose of this style is to provide a familiar visual environment fo
 - **Compatibility**: This style is designed to work seamlessly with JOSM's default styles, such as the [JOSM Standard](https://josm.openstreetmap.de/browser/trunk/resources/styles/standard/elemstyles.mapcss) and [Potlatch 2](https://josm.openstreetmap.de/wiki/Styles/Potlatch2) styles, ensuring it can be used alongside other popular styles without conflicts.
 
 - **Access Restrictions**: Visually indicates paths with restricted access, such as those that are private, permissive, or not accessible to bicycles, helping users quickly identify paths with access limitations.
-
-### Differences from Trailmap.fi
-
-While this style draws heavy inspiration from Trailmap.fi, it is not an exact copy. Certain elements may render differently, and some visual aspects have been approximated to best match the appearance of Trailmap.fi. Additionally, the style includes extra features not found on Trailmap.fi, such as the uphill difficulty scale.
+- 
 
 ### Contributions and Feedback
 
