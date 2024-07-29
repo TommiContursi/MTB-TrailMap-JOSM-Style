@@ -1,8 +1,8 @@
 meta
 {
-    title: "Trailmap Inspired Style";
+    title: "Trailmap Inspired Style JOSM Style";
     description: "visualize mtb:scale of objects";
-    version: 1_2024-07-28;
+    version: 1_2024-07-29;
     author: "Tommi Contursi";
     link: "https://github.com/TommiContursi/JOSM-Style";
     min-josm-version: 7110;
@@ -17,7 +17,7 @@ meta[lang=en]
 /* Basic canvas background color */
 canvas
 {
-    fill-color: #606060;
+    //fill-color: #606060;
 }
 
 /* Node styles for different zoom levels */
@@ -50,7 +50,7 @@ node:connection
     symbol-fill-color: yellow;
 }
 
-/* Highway styles for cycleway, track, and path */
+/* Basic highway styles for cycleway, track, and path */
 way[highway=~/track|path/]
 {
     color: #000;
@@ -69,6 +69,7 @@ way[highway=track]
     dashes: 15, 5;
     right-casing-color: #ffffff00;
     left-casing-color: #ffffff00;
+    casing-color: #ffffff00;
     width: 4;
     casing-width: 3;
     left-casing-width: 8;
@@ -78,8 +79,11 @@ way[highway=track]
 way[highway=cycleway]
 {
     color: #3146d7;
-    width: 4;
-    dashes: none;
+    width: 3;
+    dashes: 15, 5;
+    casing-width: 1;
+    dashes-background-color: #fff;
+    casing-color: #fff;
 }
 way[highway=footway]
 {
@@ -88,140 +92,37 @@ way[highway=footway]
     dashes: 5, 5;
 }
 
-/* MTB scale based styles */
-way[mtb:scale] {
-    casing-color: eval(
-        tag("mtb:scale") == "0-" ? "#50d6eb" :
-        tag("mtb:scale") == "0" ? "#75e009" :
-        tag("mtb:scale") == "1" ? "#e3e800" :
-        tag("mtb:scale") == "2" ? "#feb13e" :
-        tag("mtb:scale") == "3" ? "#ff4454" :
-        tag("mtb:scale") == "4" ? "#f20bab" :
-        tag("mtb:scale") == "5" ? "#bf1cf5" :
-        tag("mtb:scale") == "6" ? "#8100ac" : "#ffffff"
-    );
-}
-
-/* Width based on track width */
-way[width<0.6] {
-    width: 2;
-    casing-width: 1;
-    left-casing-width: 3;
-    right-casing-width: 4;
-    left-casing-offset: 2;
-}
-way[width>=0.6][width<0.9] {
-    width: 2;
-    casing-width: 2;
-    left-casing-width: 4;
-    right-casing-width: 6;
-    left-casing-offset: 3;
-}
-way[width>=0.9][width<1.8] {
-    width: 3;
-    casing-width: 2;
-    left-casing-width: 6;
-    right-casing-width: 8;
-    left-casing-offset: 4;
-}
-way[width>=1.8] {
-    width: 4;
-    casing-width: 3;
-    left-casing-width: 8;
-    right-casing-width: 10;
-    left-casing-offset: 4;
-}
-
-/* Visibility based styles */
-way[trail_visibility=excellent] { dashes: 8, 5; }
-way[trail_visibility=good] { dashes: 8, 5; }
-way[trail_visibility=intermediate] { dashes: 6, 5; casing-opacity: 0.75; casing-dashes-opacity: 0.75;}
-way[trail_visibility=bad] { dashes: 6, 5; casing-opacity: 0.5; casing-dashes-opacity: 0.5;}
-way[trail_visibility=horrible] { dashes: 6, 5; casing-opacity: 0.5; opacity: 0.5;}
-way[trail_visibility=no] { dashes: 6, 5; casing-opacity: 0.25; casing-dashes-opacity: 0.25;}
-
-/* Obstacle based styles */
-way[obstacle="vegetation"] {
-    right-casing-color: #56aa00;
-    right-casing-dashes: 3, 7;
-    right-casing-offset: 5;
-}
-way[obstacle="mud"] {
-    right-casing-color: #50d6eb;
-    right-casing-dashes: 3, 7;
-    right-casing-offset: 5;
-}
-
-/* Uphill scale based styles */
-way|z15-[mtb:scale:uphill=1] {
-    left-casing-color: #e3e800;
-    left-casing-dashes-background-opacity: 0.25;
-    left-casing-dashes-background-color: #e3e800;
-    left-casing-dashes: 3, 15;
-}
-way|z15-[mtb:scale:uphill=2] {
-    left-casing-color: #feb13e;
-    left-casing-dashes-background-opacity: 0.25;
-    left-casing-dashes-background-color: #feb13e;
-    left-casing-dashes: 3, 4, 3, 15;
-}
-way|z15-[mtb:scale:uphill=3] {
-    left-casing-color: #ff4454;
-    left-casing-dashes-background-opacity: 0.25;
-    left-casing-dashes-background-color: #ff4454;
-    left-casing-dashes: 3, 4, 3, 4, 3, 17;
-}
-way|z15-[mtb:scale:uphill=4] {
-    left-casing-color: #f20bab;
-    left-casing-dashes-background-opacity: 0.25;
-    left-casing-dashes-background-color: #f20bab;
-    left-casing-dashes: 3, 4, 3, 4, 3, 4, 3, 18;
-}
-way|z15-[mtb:scale:uphill=5] {
-    left-casing-color: #f20bab;
-    left-casing-dashes-background-opacity: 0.25;
-    left-casing-dashes-background-color: #f20bab;
-    left-casing-dashes: 3, 4, 3, 4, 3, 4, 3, 4, 3, 20;
-}
-
-/* Minor roads */
+/* Basic road styles */
 way[highway=~/unclassified|residential|tertiary|service/] {
-    color: white;
+    color: darkgrey;
     opacity: 0.5;
-    casing-color: #684718;
+    casing-color: grey;
     casing-width: 2;
 }
-
 way|z-14[highway=~/unclassified|residential|tertiary|service/] {
+    width: 3;
+}
+way|z15-16[highway=~/unclassified|residential|tertiary|service/] {
     width: 4;
 }
-
-way|z15-16[highway=~/unclassified|residential|tertiary|service/] {
+way|z17-[highway=~/unclassified|residential|tertiary|service/] {
     width: 6;
 }
 
-way|z17-[highway=~/unclassified|residential|tertiary|service/] {
-    width: 10;
-}
-
-/* Regional and major roads */
 way[highway=~/motorway|trunk|primary|secondary/] {
-    color: #E6DEBE;
+    color: darkgrey;
     opacity: 0.5;
-    casing-color: #684718;
+    casing-color: grey;
     casing-width: 2;
 }
-
 way|z-14[highway=~/motorway|trunk|primary|secondary/] {
-    width: 6;
+    width: 3;
 }
-
 way|z15-16[highway=~/motorway|trunk|primary|secondary/] {
-    width: 8;
+    width: 4;
 }
-
 way|z17-[highway=~/motorway|trunk|primary|secondary/] {
-    width: 12;
+    width: 6;
 }
 
 /* Waterways */
@@ -238,7 +139,6 @@ relation[type=route][route=~/bicycle|mtb/][network=ncn] > way::relation_underlay
     opacity: 0.15;
     linecap: none;
 }
-
 relation[type=route][route=~/bicycle|mtb/][network=rcn] > way::relation_underlay {
     z-index: -200;
     width: 15;
@@ -246,7 +146,6 @@ relation[type=route][route=~/bicycle|mtb/][network=rcn] > way::relation_underlay
     opacity: 0.15;
     linecap: none;
 }
-
 relation[type=route][route=~/bicycle|mtb/][network=lcn] > way::relation_underlay {
     z-index: -200;
     width: 15;
@@ -256,28 +155,198 @@ relation[type=route][route=~/bicycle|mtb/][network=lcn] > way::relation_underlay
 }
 
 /* Text display for mtb:scale */
-way|z14-[mtb:scale] {
+setting::mtb_scale_text_display {
+default: true;
+type: boolean;
+label: "Display Difficulty Text";
+description: "Toggle display of MTB Difficulty Scale text next to the path";
+}
+
+way|z17-[mtb:scale][setting("mtb_scale_text_display")]::mtbscale_layer {
     font-family: Arial;
     text: concat("S", tag("mtb:scale"));
-    text-color: black;
+    text-color: eval(
+    tag("mtb:scale") == "0-" ? "#50d6eb" :
+    tag("mtb:scale") == "0" ? "#75e009" :
+    tag("mtb:scale") == "1" ? "#e3e800" :
+    tag("mtb:scale") == "2" ? "#feb13e" :
+    tag("mtb:scale") == "3" ? "#ff4454" :
+    tag("mtb:scale") == "4" ? "#f20bab" :
+    tag("mtb:scale") == "5" ? "#bf1cf5" :
+    tag("mtb:scale") == "6" ? "#8100ac" : "#ffffff"
+    );
     font-size: 14;
     font-weight: bold;
     text-offset: 10;
     text-position: line;
     z-index: 2;
-    text-halo-color: white;
+    text-halo-color: black;
     text-halo-radius: 1;
 }
 
 /* Text display for mtb:scale:uphill */
-way|z14-[mtb:scale][mtb:scale:uphill] {
-  text: concat("S", tag("mtb:scale"), " ", "/ S", tag("mtb:scale:uphill"));
-  text-color: black;
-  font-size: 14;
-  font-weight: bold;
-  text-offset: -10;
-  text-position: line;
-  z-index: 2;
-  text-halo-color: white;
-  text-halo-radius: 1;
+way|z17-[mtb:scale][mtb:scale:uphill]::mtbscale_layer_uphill  {
+    text: concat("UP S", tag("mtb:scale:uphill"));
+    text-color: eval(
+    tag("mtb:scale:uphill") == "0" ? "#75e009" :
+    tag("mtb:scale:uphill") == "1" ? "#e3e800" :
+    tag("mtb:scale:uphill") == "2" ? "#feb13e" :
+    tag("mtb:scale:uphill") == "3" ? "#ff4454" :
+    tag("mtb:scale:uphill") == "4" ? "#f20bab" :
+    tag("mtb:scale:uphill") == "5" ? "#bf1cf5" :  "#ffffff"
+    );
+    font-size: 14;
+    font-weight: bold;
+    text-offset: -10;
+    text-position: line;
+    z-index: 2;
+    text-halo-color: black;
+    text-halo-radius: 1;
+}
+
+/* Optional properties for trails and paths */
+
+/* Width based on track width */
+way[highway=~/track|path/][width] {
+    width: eval(
+        tag("width") < 0.6 ? 2 :
+        tag("width") < 0.9 ? 2 :
+        tag("width") < 1.8 ? 3 : 4
+    );
+    casing-width: eval(
+        tag("width") < 0.6 ? 1 :
+        tag("width") < 0.9 ? 2 :
+        tag("width") < 1.8 ? 2 : 3
+    );
+    left-casing-width: eval(
+        tag("width") < 0.6 ? 3 :
+        tag("width") < 0.9 ? 4 :
+        tag("width") < 1.8 ? 6 : 8
+    );
+    right-casing-width: eval(
+        tag("width") < 0.6 ? 4 :
+        tag("width") < 0.9 ? 6 :
+        tag("width") < 1.8 ? 8 : 10
+    );
+    left-casing-offset: eval(
+        tag("width") < 0.6 ? 2 :
+        tag("width") < 0.9 ? 3 :
+        tag("width") < 1.8 ? 4 : 4
+    );
+}
+
+/* Visibility based styles */
+way[trail_visibility=excellent] {
+    dashes: 8, 5;
+}
+way[trail_visibility=good] {
+    dashes: 8, 5;
+}
+way[trail_visibility=intermediate] {
+    dashes: 6, 5;
+    casing-opacity: 0.75;
+    casing-dashes-opacity: 0.75;
+}
+way[trail_visibility=bad] {
+    dashes: 6, 5;
+    casing-opacity: 0.5;
+    casing-dashes-opacity: 0.5;
+}
+way[trail_visibility=horrible] {
+    dashes: 6, 5;
+    casing-opacity: 0.5;
+    opacity: 0.5;
+}
+way[trail_visibility=no] {
+    dashes: 6, 5;
+    casing-opacity: 0.25;
+    casing-dashes-opacity: 0.25;
+}
+
+/* Obstacle based styles */
+way[obstacle="vegetation"] {
+    right-casing-color: #56aa00;
+    right-casing-dashes: 3, 7;
+    right-casing-offset: 5;
+}
+way[obstacle="mud"] {
+    right-casing-color: #50d6eb;
+    right-casing-dashes: 3, 7;
+    right-casing-offset: 5;
+}
+
+/* MTB scale styles with user toggle option */
+setting::mtb_scale_display {
+default: true;
+type: boolean;
+label: "Display MTB Difficulty Scale";
+description: "Toggle display of MTB Difficulty Scale";
+}
+
+way[mtb:scale][setting("mtb_scale_display")] {
+casing-color: eval(
+tag("mtb:scale") == "0-" ? "#50d6eb" :
+tag("mtb:scale") == "0" ? "#75e009" :
+tag("mtb:scale") == "1" ? "#e3e800" :
+tag("mtb:scale") == "2" ? "#feb13e" :
+tag("mtb:scale") == "3" ? "#ff4454" :
+tag("mtb:scale") == "4" ? "#f20bab" :
+tag("mtb:scale") == "5" ? "#bf1cf5" :
+tag("mtb:scale") == "6" ? "#8100ac" : "#ffffff"
+);
+dashes-background-color: eval(
+tag("mtb:scale") == "0-" ? "#50d6eb" :
+tag("mtb:scale") == "0" ? "#75e009" :
+tag("mtb:scale") == "1" ? "#e3e800" :
+tag("mtb:scale") == "2" ? "#feb13e" :
+tag("mtb:scale") == "3" ? "#ff4454" :
+tag("mtb:scale") == "4" ? "#f20bab" :
+tag("mtb:scale") == "5" ? "#bf1cf5" :
+tag("mtb:scale") == "6" ? "#8100ac" : "#ffffff"
+);
+}
+
+/* MTB uphill scale styles with user toggle option */
+setting::mtb_uphill_display {
+default: true;
+type: boolean;
+label: "Display MTB Uphill Difficulty Scale";
+description: "Toggle display of MTB Uphill Difficulty Scale";
+}
+
+way[mtb:scale:uphill][setting("mtb_uphill_display")] {
+left-casing-dashes: 3, 15;
+left-casing-dashes-background-opacity: 0.25;
+left-casing-color: eval(
+tag("mtb:scale:uphill") == "1" ? "#e3e800" :
+tag("mtb:scale:uphill") == "2" ? "#feb13e" :
+tag("mtb:scale:uphill") == "3" ? "#ff4454" :
+tag("mtb:scale:uphill") == "4" ? "#f20bab" :
+tag("mtb:scale:uphill") == "5" ? "#bf1cf5" : "#ffffff"
+);
+left-casing-dashes-background-color: eval(
+tag("mtb:scale:uphill") == "1" ? "#e3e800" :
+tag("mtb:scale:uphill") == "2" ? "#feb13e" :
+tag("mtb:scale:uphill") == "3" ? "#ff4454" :
+tag("mtb:scale:uphill") == "4" ? "#f20bab" :
+tag("mtb:scale:uphill") == "5" ? "#bf1cf5" : "#ffffff"
+);
+}
+
+/* Indicates no bicycle access or restricted access (no, private, permissive) for tracks and paths */
+way[highway=~/track|path/][bicycle=permissive]::core_access,
+way[highway=~/track|path/][access=permissive]::core_access {
+    z-index: -1;
+    width: 10;
+    color: #ff0000;
+    dashes: 2, 15;
+}
+way[highway=~/track|path/][bicycle=no]::core_access,
+way[highway=~/track|path/][bicycle=private]::core_access,
+way[highway=~/track|path/][access=no]::core_access,
+way[highway=~/track|path/][access=private]::core_access {
+    z-index: -1;
+    width: 10;
+    color: #ff0000;
+    dashes: 4, 4;
 }
