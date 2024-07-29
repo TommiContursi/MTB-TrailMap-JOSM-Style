@@ -1,14 +1,15 @@
 # MTB Trailmap - Map Style for JOSM
-*Easily visualize path or trail difficulty, uphill difficulty, trail width, visibility and surface while editing maps with JOSM editor*
+*Easily visualize path or trail difficulty, uphill difficulty, trail width, visibility, and surface type while editing maps with JOSM editor. Inspired by the popular Trailmap map service, this style enhances your mapping experience by providing clear, color-coded indicators and text labels for various trail attributes, helping you make accurate and detailed edits.*
 
 ![Trailmap Inspired Style](JOSM-style-trailmap.png)
+
 ## Introduction
 
 The Trailmap Inspired Style for JOSM brings the look and feel of the popular [Trailmap.fi](https://web.trailmap.fi) map service into the JOSM editor. This style is particularly beneficial for users, especially in Finland, who frequently contribute to OpenStreetMap (OSM) and want to ensure their updates will reflect accurately on the Trailmap platform. By replicating the visual style of Trailmap, users can immediately see how their edits and updates will appear, maintaining consistency and accuracy in map data.
 
 While this style draws heavy inspiration from Trailmap.fi, it is important to note that it is not an exact copy nor created based on their code. All visual aspects have been approximated through visual inspection to best match the appearance of Trailmap.fi. Consequently, certain elements may be rendered differently, and users should not expect a perfect one-to-one replication. Despite these differences, this style aims to provide a close approximation that will be helpful for many map editors.
 
-In addition to mimicking the visual style, this JOSM style includes extra features not found on Trailmap.fi, such as the uphill difficulty scale and text labels for MTB difficulty. These enhancements offer additional functionality for users to visualize more detailed aspects of trail data.
+In addition to mimicking the visual style, this JOSM style includes extra features not found on Trailmap.fi, such as the uphill difficulty scale, text labels for MTB difficulty, and surface information. These enhancements offer additional functionality for users to visualize more detailed aspects of trail data, providing a comprehensive view of the trail conditions.
 
 This style is designed to work seamlessly with JOSM's default styles, such as the [JOSM Standard](https://josm.openstreetmap.de/browser/trunk/resources/styles/standard/elemstyles.mapcss) and [Potlatch 2](https://josm.openstreetmap.de/wiki/Styles/Potlatch2) styles, ensuring it can be used alongside other popular styles without conflicts.
 
@@ -23,27 +24,12 @@ The primary purpose of this style is to provide a familiar visual environment fo
 ### Key Features
 
 - **MTB Difficulty Scale**: Indicates MTB difficulty scale with color coding, making it easy to distinguish trails at a glance.
-  
 - **MTB Difficulty Scale Uphill**: Displays a secondary line next to the path for the uphill difficulty scale, providing detailed information for mountain bikers.
-
 - **Text Display**: Shows text labels next to paths for MTB difficulty scale and uphill difficulty scale, providing clear, on-map information about trail difficulty.
-
-- **Toggle Options**: Users can easily toggle the visibility of various elements such as the MTB difficulty scale and uphill difficulty scale, allowing for a cleaner map view based on individual preferences.
-
+- **Surface Information**: Displays surface information with color coding and text labels next to paths, indicating the type of surface (e.g., paved, gravel, dirt).
+- **Toggle Options**: Users can easily toggle the visibility of various elements such as the MTB difficulty scale, uphill difficulty scale, and surface information, allowing for a cleaner map view based on individual preferences.
 - **Compatibility**: This style is designed to work seamlessly with JOSM's default styles, such as the [JOSM Standard](https://josm.openstreetmap.de/browser/trunk/resources/styles/standard/elemstyles.mapcss) and [Potlatch 2](https://josm.openstreetmap.de/wiki/Styles/Potlatch2) styles, ensuring it can be used alongside other popular styles without conflicts.
-
 - **Access Restrictions**: Visually indicates paths with restricted access, such as those that are private, permissive, or not accessible to bicycles, helping users quickly identify paths with access limitations.
-- 
-
-### Contributions and Feedback
-
-We welcome contributions from the community to help improve this style. If you have suggestions, find any issues, or want to contribute code, please feel free to open issues or submit pull requests on our [GitHub repository](https://github.com/TommiContursi/JOSM-Style). Your feedback is invaluable in helping us refine and enhance this style.
-
-### License
-
-This project is licensed under the MIT License. For more details, please refer to the [LICENSE](LICENSE) file in the repository.
-
----
 
 ## Installation
 
@@ -57,7 +43,7 @@ This project is licensed under the MIT License. For more details, please refer t
 
 ### Toggle Options in JOSM
 
-This style includes settings that allow you to toggle the visibility of certain elements such as the MTB difficulty scale and uphill difficulty scale. To access and modify these settings:
+This style includes settings that allow you to toggle the visibility of certain elements such as the MTB difficulty scale, uphill difficulty scale, and surface information. To access and modify these settings:
 
 1. Open JOSM editor.
 2. Load the style by following the installation instructions.
@@ -68,12 +54,14 @@ This style includes settings that allow you to toggle the visibility of certain 
    - **Display MTB Difficulty Scale**: Toggle the display of MTB difficulty scale color coding on paths.
    - **Display Difficulty Text**: Toggle the display of MTB difficulty scale text next to the paths.
    - **Display MTB Uphill Difficulty Scale**: Toggle the display of MTB uphill difficulty scale color coding on paths.
+   - **Display Surface Information**: Toggle the display of surface information for paths and tracks.
 
 By default, all these options are enabled. You can disable any of these options based on your preference.
+---
 
 ## Contribution
 
-Feel free to open issues or submit pull requests if you have suggestions for improvements or find any bugs. Contributions are welcome and appreciated.
+I welcome contributions from the community to help improve this style. If you have suggestions, find any issues, or want to contribute code, please feel free to open issues or submit pull requests on our [GitHub repository]([https://github.com/TommiContursi/JOSM-Style](https://github.com/TommiContursi/MTB-TrailMap-JOSM-Style)). Your feedback is invaluable in helping us refine and enhance this style.
 
 ## License
 
@@ -81,7 +69,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ---
 
-## Examples
+## Visual Guide
 
 ### MTB Difficulty Scale
 
@@ -119,3 +107,39 @@ Paths with varying visibility are displayed with different dash patterns and opa
 Paths with restricted access are displayed with red color and specific dash patterns:
 - `bicycle=no`, `bicycle=private`, `access=no`, `access=private`: Dash pattern `4, 4`
 - `bicycle=permissive`, `access=permissive`: Dash pattern `2, 15`
+
+---
+
+## Changelog
+
+### [1_2024-07-30] - 2024-07-30
+
+#### Added
+- **MTB Difficulty Scale Display**: 
+  - Color-coded MTB difficulty scale based on `mtb:scale` tag.
+  - Text display next to paths indicating MTB difficulty scale with color coding.
+  - Toggle option `mtb_scale_text_display` to enable or disable MTB difficulty scale text display.
+- **MTB Uphill Difficulty Scale Display**:
+  - Color-coded MTB uphill difficulty scale based on `mtb:scale:uphill` tag.
+  - Text display next to paths indicating MTB uphill difficulty scale with color coding.
+  - Toggle option `mtb_uphill_display` to enable or disable MTB uphill difficulty scale display.
+- **Surface Information Display**:
+  - Color-coded surface information display based on `surface` tag.
+  - Text display next to paths indicating surface type with color coding.
+  - Toggle option `surface_display` to enable or disable surface information display.
+  - Added new surface types with appropriate colors: wood, concrete, cobblestone, pebblestone, compacted, fine_gravel, grass_paver, paving_stones, metal, bricks, earth, clay, mud, ground, rock.
+
+#### Changed
+- **Code Organization**:
+  - Improved readability and organization by consolidating repeated logic and structuring code more efficiently.
+- **Path and Track Styles**:
+  - Updated the text offset for `mtb:scale` and `mtb:scale:uphill` to avoid overlapping with surface information text.
+  - Ensured that the styles work seamlessly with JOSM default styles like [JOSM Standard](https://josm.openstreetmap.de/browser/trunk/resources/styles/standard/elemstyles.mapcss) and [Potlatch 2](https://josm.openstreetmap.de/wiki/Styles/Potlatch2).
+- **Access Restrictions Display**:
+  - Implemented display for restricted access (no, private, permissive) for tracks and paths with specific color coding and dash patterns.
+
+#### Fixed
+- **Text Overlapping Issues**:
+  - Corrected text offset issues to ensure clear and non-overlapping text displays for different path attributes.
+- **String Comparison Issues**:
+  - Addressed issues with string comparisons in the MapCSS `eval` function to ensure proper rendering based on tag values.
