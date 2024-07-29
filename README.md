@@ -1,4 +1,4 @@
-# Trailmap Inspired Style for JOSM
+# MTB Trailmap - Map Style for JOSM
 ![Trailmap Inspired Style](JOSM-style-trailmap.png)
 ## Introduction
 
