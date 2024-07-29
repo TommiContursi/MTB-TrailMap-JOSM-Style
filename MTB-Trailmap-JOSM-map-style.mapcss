@@ -1,10 +1,10 @@
 meta
 {
-    title: "Trailmap Inspired Style JOSM Style";
-    description: "visualize mtb:scale of objects";
+    title: "MTB Trailmap - Map Style for JOSM";
+    description: "Easily visualize path or trail difficulty, uphill difficulty, trail width, visibility and surface while editing maps with JOSM editor";
     version: 1_2024-07-29;
     author: "Tommi Contursi";
-    link: "https://github.com/TommiContursi/JOSM-Style";
+    link: "https://github.com/TommiContursi/MTB-TrailMap-JOSM-Style";
     min-josm-version: 7110;
 }
 
