@@ -2,6 +2,7 @@
 *Easily visualize path or trail difficulty, uphill difficulty, trail width, visibility, and surface type while editing maps with JOSM editor. Inspired by the popular Trailmap map service, this style enhances your mapping experience by providing clear, color-coded indicators and text labels for various trail attributes, helping you make accurate and detailed edits.*
 
 ![Trailmap Inspired Style](JOSM-style-trailmap.png)
+Example how the map style looks combined with the Potlatch2 map style.
 
 ## Introduction
 
@@ -16,10 +17,12 @@ This style is designed to work seamlessly with JOSM's default styles, such as th
 ### Purpose and Benefits
 
 The primary purpose of this style is to provide a familiar visual environment for Trailmap users within JOSM. It helps users to:
-- Visualize the MTB difficulty scale of trails.
-- Identify access restrictions and obstacles.
-- See trail visibility and width variations.
-- Utilize customizable settings for a tailored mapping experience.
+
+- **Visualize the MTB difficulty scale of trails**: Easily distinguish trails by their difficulty levels using color-coded indicators.
+- **Identify access restrictions and obstacles**: Quickly recognize paths with restricted access or potential obstacles.
+- **See trail visibility and width variations**: Understand the visibility and width of trails at a glance with varied dash patterns and opacities.
+- **Utilize customizable settings for a tailored mapping experience**: Adjust the display of various trail attributes to suit individual mapping needs, enhancing the overall user experience.
+- **Surface Information**: Display detailed surface type information directly on the paths, aiding in better trail assessment and editing decisions.
 
 ### Key Features
 
@@ -74,23 +77,23 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ### MTB Difficulty Scale
 
 Paths are color-coded based on their MTB difficulty scale:
-- `mtb:scale=0-`: Light Blue
-- `mtb:scale=0`: Green
-- `mtb:scale=1`: Yellow
-- `mtb:scale=2`: Orange
-- `mtb:scale=3`: Red
-- `mtb:scale=4`: Magenta
-- `mtb:scale=5`: Purple
-- `mtb:scale=6`: Dark Purple
+- `mtb:scale=0-`: Light Blue `#50d6eb`
+- `mtb:scale=0`: Green `#75e009`
+- `mtb:scale=1`: Yellow `#e3e800`
+- `mtb:scale=2`: Orange `#feb13e`
+- `mtb:scale=3`: Red `#ff4454`
+- `mtb:scale=4`: Magenta `#f20bab`
+- `mtb:scale=5`: Purple `#bf1cf5`
+- `mtb:scale=6`: Dark Purple `#8100ac`
 
 ### MTB Difficulty Scale Uphill
 
 Paths are color-coded based on their MTB uphill difficulty scale, displayed as a secondary line next to the path:
-- `mtb:scale:uphill=1`: Yellow
-- `mtb:scale:uphill=2`: Orange
-- `mtb:scale:uphill=3`: Red
-- `mtb:scale:uphill=4`: Magenta
-- `mtb:scale:uphill=5`: Purple
+- `mtb:scale:uphill=1`: Yellow `#e3e800`
+- `mtb:scale:uphill=2`: Orange `#feb13e`
+- `mtb:scale:uphill=3`: Red `#ff4454`
+- `mtb:scale:uphill=4`: Magenta `#f20bab`
+- `mtb:scale:uphill=5`: Purple `#bf1cf5`
 
 ### Visibility Based Styles
 
@@ -108,6 +111,30 @@ Paths with restricted access are displayed with red color and specific dash patt
 - `bicycle=no`, `bicycle=private`, `access=no`, `access=private`: Dash pattern `4, 4`
 - `bicycle=permissive`, `access=permissive`: Dash pattern `2, 15`
 
+### Surface Information
+
+Paths are color-coded based on their surface type, with text labels displaying the surface information:
+- `surface=paved`: Dark Gray `#555555`
+- `surface=asphalt`: Darker Gray `#333333`
+- `surface=gravel`: Light Gray `#cccccc`
+- `surface=dirt`: Brown `#a52a2a`
+- `surface=grass`: Green `#7cfc00`
+- `surface=sand`: Sandy Brown `#f4a460`
+- `surface=wood`: Burlywood `#deb887`
+- `surface=concrete`: Gray `#808080`
+- `surface=cobblestone`: Saddle Brown `#8b4513`
+- `surface=pebblestone`: Dark Gray `#a9a9a9`
+- `surface=compacted`: Dark Goldenrod `#b8860b`
+- `surface=fine_gravel`: Light Gray `#d3d3d3`
+- `surface=grass_paver`: Green `#7cfc00`
+- `surface=paving_stones`: Sienna `#a0522d`
+- `surface=metal`: Light Steel Blue `#b0c4de`
+- `surface=bricks`: Firebrick `#b22222`
+- `surface=earth`: Brown `#a52a2a`
+- `surface=clay`: Chocolate `#d2691e`
+- `surface=mud`: Saddle Brown `#8b4513`
+- `surface=ground`: Saddle Brown `#8b4513`
+- `surface=rock`: Gray `#808080`
 ---
 
 ## Changelog
