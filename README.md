@@ -1,5 +1,6 @@
 # MTB Trailmap - Map Style for JOSM
 *Easily visualize path or trail difficulty, uphill difficulty, trail width, visibility and surface while editing maps with JOSM editor*
+
 ![Trailmap Inspired Style](JOSM-style-trailmap.png)
 ## Introduction
 
