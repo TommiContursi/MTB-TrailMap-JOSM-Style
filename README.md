@@ -1,5 +1,5 @@
 # Trailmap Inspired Style for JOSM
-
+![Trailmap Inspired Style](JOSM-style-trailmap.png)
 ## Introduction
 
 The Trailmap Inspired Style for JOSM brings the look and feel of the popular [Trailmap.fi](https://web.trailmap.fi) map service into the JOSM editor. This style is particularly beneficial for users, especially in Finland, who frequently contribute to OpenStreetMap (OSM) and want to ensure their updates will reflect accurately on the Trailmap platform. By replicating the visual style of Trailmap, users can immediately see how their edits and updates will appear, maintaining consistency and accuracy in map data.
