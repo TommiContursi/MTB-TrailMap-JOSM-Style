@@ -2,7 +2,7 @@ meta
 {
     title: "MTB Trailmap - Map Style for JOSM";
     description: "Easily visualize path or trail difficulty, uphill difficulty, trail width, visibility and surface while editing maps with JOSM editor";
-    version: 1_2024-07-29;
+    version: 1_2024-07-30;
     author: "Tommi Contursi";
     link: "https://github.com/TommiContursi/MTB-TrailMap-JOSM-Style";
     min-josm-version: 7110;
@@ -165,12 +165,12 @@ way|z19-[mtb:scale][setting("mtb_scale_text_display")]::mtbscale_layer {
     );
     font-size: 12;
     font-weight: bold;
-    text-offset: 10;
     text-position: line;
     z-index: 2;
     text-halo-color: black;
     text-halo-radius: 1;
 }
+
 /* Toggle for displaying surface information */
 setting::surface_display {
     default: false;
@@ -180,8 +180,8 @@ setting::surface_display {
 }
 
 /* Surface information display for tracks and paths */
-way[highway=~/track|path/][surface][setting("surface_display")] {
-    dashes-background-color: eval(
+way[highway=~/track|path/][surface][setting("surface_display")]::path_surface {
+    color: eval(
         tag("surface") == "paved" ? "#555555" :
         tag("surface") == "asphalt" ? "#333333" :
         tag("surface") == "gravel" ? "#cccccc" :
@@ -204,32 +204,21 @@ way[highway=~/track|path/][surface][setting("surface_display")] {
         tag("surface") == "ground" ? "#8b4513" :
         tag("surface") == "rock" ? "#808080" : "#d3d3d3"
     );
-    casing-color: eval(
-        tag("surface") == "paved" ? "#555555" :
-        tag("surface") == "asphalt" ? "#333333" :
-        tag("surface") == "gravel" ? "#cccccc" :
-        tag("surface") == "dirt" ? "#a52a2a" :
-        tag("surface") == "grass" ? "#7cfc00" :
-        tag("surface") == "sand" ? "#f4a460" :
-        tag("surface") == "wood" ? "#deb887" :
-        tag("surface") == "concrete" ? "#808080" :
-        tag("surface") == "cobblestone" ? "#8b4513" :
-        tag("surface") == "pebblestone" ? "#a9a9a9" :
-        tag("surface") == "compacted" ? "#b8860b" :
-        tag("surface") == "fine_gravel" ? "#d3d3d3" :
-        tag("surface") == "grass_paver" ? "#7cfc00" :
-        tag("surface") == "paving_stones" ? "#a0522d" :
-        tag("surface") == "metal" ? "#b0c4de" :
-        tag("surface") == "bricks" ? "#b22222" :
-        tag("surface") == "earth" ? "#a52a2a" :
-        tag("surface") == "clay" ? "#d2691e" :
-        tag("surface") == "mud" ? "#8b4513" :
-        tag("surface") == "ground" ? "#8b4513" :
-        tag("surface") == "rock" ? "#808080" : "#d3d3d3"
+    width: eval(
+        tag("width") < 0.6 ? 2 :
+        tag("width") < 0.9 ? 2 :
+        tag("width") < 1.8 ? 3 : 4
     );
-    dashes: 5, 5;
+    dashes: 3, 3;
+    offset: -5;
+    opacity: eval(
+        tag("trail_visibility") == "excellent" ? 1 :
+        tag("trail_visibility") == "good" ? 1 :
+        tag("trail_visibility") == "intermediate" ? 0.75 :
+        tag("trail_visibility") == "bad" ? 0.5 :
+        tag("trail_visibility") == "horrible" ? 0.5 : 0.25
+    );
 }
-
 
 /* Text display for surface information */
 way|z19-[highway=~/track|path/][surface][setting("surface_display")]::surface_text {
@@ -257,110 +246,15 @@ way|z19-[highway=~/track|path/][surface][setting("surface_display")]::surface_te
         tag("surface") == "ground" ? "#8b4513" :
         tag("surface") == "rock" ? "#808080" : "#d3d3d3"
     );
-    font-size: 12;
+    font-size: 10;
     font-family: Arial;
     font-weight: bold;
     text-position: line;
+    text-offset: -10;
     z-index: 3;
-    text-halo-color: white;
+    text-halo-color: black;
     text-halo-radius: 1;
 }
-/* Toggle for displaying surface information */
-setting::surface_display {
-    default: false;
-    type: boolean;
-    label: "Display Surface Information";
-    description: "Toggle display of surface information for paths and tracks";
-}
-
-/* Surface information display for tracks and paths */
-way[highway=~/track|path/][surface][setting("surface_display")] {
-    dashes-background-color: eval(
-        tag("surface") == "paved" ? "#555555" :
-        tag("surface") == "asphalt" ? "#333333" :
-        tag("surface") == "gravel" ? "#cccccc" :
-        tag("surface") == "dirt" ? "#a52a2a" :
-        tag("surface") == "grass" ? "#7cfc00" :
-        tag("surface") == "sand" ? "#f4a460" :
-        tag("surface") == "wood" ? "#deb887" :
-        tag("surface") == "concrete" ? "#808080" :
-        tag("surface") == "cobblestone" ? "#8b4513" :
-        tag("surface") == "pebblestone" ? "#a9a9a9" :
-        tag("surface") == "compacted" ? "#b8860b" :
-        tag("surface") == "fine_gravel" ? "#d3d3d3" :
-        tag("surface") == "grass_paver" ? "#7cfc00" :
-        tag("surface") == "paving_stones" ? "#a0522d" :
-        tag("surface") == "metal" ? "#b0c4de" :
-        tag("surface") == "bricks" ? "#b22222" :
-        tag("surface") == "earth" ? "#a52a2a" :
-        tag("surface") == "clay" ? "#d2691e" :
-        tag("surface") == "mud" ? "#8b4513" :
-        tag("surface") == "ground" ? "#8b4513" :
-        tag("surface") == "rock" ? "#808080" : "#d3d3d3"
-    );
-    casing-color: eval(
-        tag("surface") == "paved" ? "#555555" :
-        tag("surface") == "asphalt" ? "#333333" :
-        tag("surface") == "gravel" ? "#cccccc" :
-        tag("surface") == "dirt" ? "#a52a2a" :
-        tag("surface") == "grass" ? "#7cfc00" :
-        tag("surface") == "sand" ? "#f4a460" :
-        tag("surface") == "wood" ? "#deb887" :
-        tag("surface") == "concrete" ? "#808080" :
-        tag("surface") == "cobblestone" ? "#8b4513" :
-        tag("surface") == "pebblestone" ? "#a9a9a9" :
-        tag("surface") == "compacted" ? "#b8860b" :
-        tag("surface") == "fine_gravel" ? "#d3d3d3" :
-        tag("surface") == "grass_paver" ? "#7cfc00" :
-        tag("surface") == "paving_stones" ? "#a0522d" :
-        tag("surface") == "metal" ? "#b0c4de" :
-        tag("surface") == "bricks" ? "#b22222" :
-        tag("surface") == "earth" ? "#a52a2a" :
-        tag("surface") == "clay" ? "#d2691e" :
-        tag("surface") == "mud" ? "#8b4513" :
-        tag("surface") == "ground" ? "#8b4513" :
-        tag("surface") == "rock" ? "#808080" : "#d3d3d3"
-    );
-    dashes: 5, 5;
-}
-
-
-/* Text display for surface information */
-way|z19-[highway=~/track|path/][surface][setting("surface_display")]::surface_text {
-    text: tag("surface");
-    text-color: eval(
-        tag("surface") == "paved" ? "#555555" :
-        tag("surface") == "asphalt" ? "#333333" :
-        tag("surface") == "gravel" ? "#cccccc" :
-        tag("surface") == "dirt" ? "#a52a2a" :
-        tag("surface") == "grass" ? "#7cfc00" :
-        tag("surface") == "sand" ? "#f4a460" :
-        tag("surface") == "wood" ? "#deb887" :
-        tag("surface") == "concrete" ? "#808080" :
-        tag("surface") == "cobblestone" ? "#8b4513" :
-        tag("surface") == "pebblestone" ? "#a9a9a9" :
-        tag("surface") == "compacted" ? "#b8860b" :
-        tag("surface") == "fine_gravel" ? "#d3d3d3" :
-        tag("surface") == "grass_paver" ? "#7cfc00" :
-        tag("surface") == "paving_stones" ? "#a0522d" :
-        tag("surface") == "metal" ? "#b0c4de" :
-        tag("surface") == "bricks" ? "#b22222" :
-        tag("surface") == "earth" ? "#a52a2a" :
-        tag("surface") == "clay" ? "#d2691e" :
-        tag("surface") == "mud" ? "#8b4513" :
-        tag("surface") == "ground" ? "#8b4513" :
-        tag("surface") == "rock" ? "#808080" : "#d3d3d3"
-    );
-    font-size: 12;
-    font-family: Arial;
-    font-weight: bold;
-    text-position: line;
-    z-index: 3;
-    text-halo-color: white;
-    text-halo-radius: 1;
-}
-
-/* Optional properties for trails and paths */
 
 /* Width based on track width */
 way[highway=~/track|path/][width] {
@@ -374,21 +268,6 @@ way[highway=~/track|path/][width] {
         tag("width") < 0.9 ? 2 :
         tag("width") < 1.8 ? 2 : 3
     );
-    left-casing-width: eval(
-        tag("width") < 0.6 ? 3 :
-        tag("width") < 0.9 ? 4 :
-        tag("width") < 1.8 ? 6 : 8
-    );
-    right-casing-width: eval(
-        tag("width") < 0.6 ? 4 :
-        tag("width") < 0.9 ? 6 :
-        tag("width") < 1.8 ? 8 : 10
-    );
-    left-casing-offset: eval(
-        tag("width") < 0.6 ? 2 :
-        tag("width") < 0.9 ? 3 :
-        tag("width") < 1.8 ? 4 : 4
-    );
 }
 
 /* Visibility based styles */
@@ -401,45 +280,29 @@ way[trail_visibility=good] {
 way[trail_visibility=intermediate] {
     dashes: 6, 5;
     casing-opacity: 0.75;
-    casing-dashes-opacity: 0.75;
+    dashes-opacity: 0.75;
+    dashes-background-opacity: 0.75;
 }
 way[trail_visibility=bad] {
     dashes: 6, 5;
     casing-opacity: 0.5;
-    casing-dashes-opacity: 0.5;
+    dashes-opacity: 0.5;
+    dashes-background-opacity: 0.5;
 }
 way[trail_visibility=horrible] {
     dashes: 6, 5;
     casing-opacity: 0.5;
-    opacity: 0.5;
+    dashes-background-opacity: 0.5;
 }
 way[trail_visibility=no] {
     dashes: 6, 5;
     casing-opacity: 0.25;
     casing-dashes-opacity: 0.25;
+    dashes-background-opacity: 0.25;
 }
 
-/* Obstacle based styles */
-way[obstacle="vegetation"] {
-    right-casing-color: #56aa00;
-    right-casing-dashes: 3, 7;
-    right-casing-offset: 5;
-}
-way[obstacle="mud"] {
-    right-casing-color: #50d6eb;
-    right-casing-dashes: 3, 7;
-    right-casing-offset: 5;
-}
-
-/* MTB scale styles with user toggle option */
-setting::mtb_scale_display {
-    default: true;
-    type: boolean;
-    label: "Display MTB Difficulty Scale";
-    description: "Toggle display of MTB Difficulty Scale";
-}
-
-way[mtb:scale][setting("mtb_scale_display")] {
+/* MTB scale styles  */
+way[mtb:scale] {
     casing-color: eval(
         tag("mtb:scale") == "0-" ? "#50d6eb" :
         tag("mtb:scale") == "0" ? "#75e009" :
@@ -460,6 +323,11 @@ way[mtb:scale][setting("mtb_scale_display")] {
         tag("mtb:scale") == "5" ? "#bf1cf5" :
         tag("mtb:scale") == "6" ? "#8100ac" : "#ffffff"
     );
+    width: eval(
+        tag("width") < 0.6 ? 2 :
+        tag("width") < 0.9 ? 2 :
+        tag("width") < 1.8 ? 3 : 4
+    );
 }
 
 /* MTB uphill scale styles with user toggle option */
@@ -471,8 +339,8 @@ setting::mtb_uphill_display {
 }
 
 /* Text display for mtb:scale:uphill */
-way|z19-[mtb:scale][mtb:scale:uphill][setting("mtb_uphill_display")]::mtbscale_layer_uphill {
-    text: concat("UP S", tag("mtb:scale:uphill"));
+way|z19-[mtb:scale][mtb:scale:uphill][setting("mtb_uphill_display")]::uphill_difficulty {
+    text: concat("↑ S", tag("mtb:scale:uphill"));
     text-color: eval(
         tag("mtb:scale:uphill") == "0" ? "#75e009" :
         tag("mtb:scale:uphill") == "1" ? "#e3e800" :
@@ -481,31 +349,65 @@ way|z19-[mtb:scale][mtb:scale:uphill][setting("mtb_uphill_display")]::mtbscale_l
         tag("mtb:scale:uphill") == "4" ? "#f20bab" :
         tag("mtb:scale:uphill") == "5" ? "#bf1cf5" :  "#ffffff"
     );
-    font-size: 12;
+    font-size: 10;
     font-weight: bold;
-    text-offset: -15;
+    text-offset: 12;
     text-position: line;
     z-index: 2;
     text-halo-color: black;
     text-halo-radius: 1;
 }
-way[mtb:scale:uphill][setting("mtb_uphill_display")] {
-    left-casing-dashes: 3, 15;
-    left-casing-dashes-background-opacity: 0.25;
-    left-casing-color: eval(
+
+way[mtb:scale:uphill][setting("mtb_uphill_display")]::uphill_difficulty {
+    color: eval(
+        tag("mtb:scale:uphill") == "0" ? "#75e009" :
         tag("mtb:scale:uphill") == "1" ? "#e3e800" :
         tag("mtb:scale:uphill") == "2" ? "#feb13e" :
         tag("mtb:scale:uphill") == "3" ? "#ff4454" :
         tag("mtb:scale:uphill") == "4" ? "#f20bab" :
         tag("mtb:scale:uphill") == "5" ? "#bf1cf5" : "#ffffff"
     );
-    left-casing-dashes-background-color: eval(
+    width: eval(
+        tag("width") < 0.6 ? 3 :
+        tag("width") < 0.9 ? 4 :
+        tag("width") < 1.8 ? 5 : 4
+    );
+    offset: 5;
+    opacity: eval(
+        tag("trail_visibility") == "excellent" ? 1 :
+        tag("trail_visibility") == "good" ? 1 :
+        tag("trail_visibility") == "intermediate" ? 0.75 :
+        tag("trail_visibility") == "bad" ? 0.5 :
+        tag("trail_visibility") == "horrible" ? 0.5 : 0.25
+    );
+    dashes-background-opacity: 0.25;
+    dashes-background-color: eval(
+        tag("mtb:scale:uphill") == "0" ? "#75e009" :
         tag("mtb:scale:uphill") == "1" ? "#e3e800" :
         tag("mtb:scale:uphill") == "2" ? "#feb13e" :
         tag("mtb:scale:uphill") == "3" ? "#ff4454" :
         tag("mtb:scale:uphill") == "4" ? "#f20bab" :
         tag("mtb:scale:uphill") == "5" ? "#bf1cf5" : "#ffffff"
     );
+}
+/*Eval doesn't work with dashes so this needs to be here */
+way[mtb:scale:uphill=0][setting("mtb_uphill_display")]::uphill_difficulty {
+    dashes: 0, 15;
+}
+way[mtb:scale:uphill=1][setting("mtb_uphill_display")]::uphill_difficulty {
+    dashes: 1.4, 15;
+}
+way[mtb:scale:uphill=2][setting("mtb_uphill_display")]::uphill_difficulty {
+    dashes: 1.4, 3, 1.4, 15;
+}
+way[mtb:scale:uphill=3][setting("mtb_uphill_display")]::uphill_difficulty {
+    dashes: 1.4, 3, 1.4, 3, 1.4, 17;
+}
+way[mtb:scale:uphill=4][setting("mtb_uphill_display")]::uphill_difficulty {
+    dashes: 1.4, 3, 1.4, 3, 1.4, 3, 1.4, 18;
+}
+way[mtb:scale:uphill=5][setting("mtb_uphill_display")]::uphill_difficulty {
+    dashes: 1.4, 3, 1.4, 3, 1.4, 3, 1.4, 3, 1.4, 20;
 }
 
 /* Indicates no bicycle access or restricted access (no, private, permissive) for tracks and paths */
@@ -524,4 +426,28 @@ way[highway=~/track|path/][access=private]::core_access {
     width: 10;
     color: #ff0000;
     dashes: 4, 4;
+}
+
+/* Obstacles based styles */
+way[highway=~/track|path/][obstacle=vegetation]::core_access {
+    z-index: -1;
+    color: #56aa00;
+    dashes: 3, 7;
+    offset: 5;
+    width: eval(
+        tag("width") < 0.6 ? 3 :
+        tag("width") < 0.9 ? 4 :
+        tag("width") < 1.8 ? 6 : 8
+    );
+}
+way[highway=~/track|path/][obstacle=mud]::core_access {
+    z-index: -1;
+    color: #50d6eb;
+    dashes: 3, 7;
+    offset: 5;
+    width: eval(
+        tag("width") < 0.6 ? 3 :
+        tag("width") < 0.9 ? 4 :
+        tag("width") < 1.8 ? 6 : 8
+    );
 }
