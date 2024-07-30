@@ -67,8 +67,8 @@ This style includes settings that allow you to toggle the visibility of certain 
 1. Open JOSM editor.
 2. Load the style by following the installation instructions.
 3. Go to `View` > `Map Paint Styles`.
-4. In the Map Paint Styles panel, find the Trailmap Inspired Style.
-5. Click on the wrench icon next to the style name to open the style settings.
+4. In the Map Paint Styles panel, find the MTB Trailmap Style.
+5. Click on the wrench icon next to the style name to open the style settings. Optionally, you can right click the style name and find the menu from there. 
 6. Here, you can see various toggle options:
 
 - **Display MTB Difficulty Scale**: Toggle the display of color-coded MTB difficulty scale on paths.
@@ -171,60 +171,43 @@ Paths are color-coded based on their surface type, with text labels displaying t
   
 ---
 
-## Changelog
+## Change Log
 
 ### 2024-07-30
 
-#### Added
-- **Path Opacity**:
-  - Toggle option `path_opacity` to enable or disable path opacity based on trail visibility.
-- **Updated Colors**:
-  - Adjusted colors for various path attributes to improve visibility and differentiation.
-- **Separate Path Surface Display**:
-  - Added option to display surface information on a separate path layer.
+**Added:**
 
-#### Changed
-- **Text Offsets**:
-  - Updated text offsets for `mtb:scale` and `mtb:scale:uphill` to avoid overlapping with surface information text.
-- **Simplified Code**:
-  - Consolidated and simplified various sections of the code for better readability and maintainability.
-- **Surface Display**:
-  - Improved logic for surface display on paths with clearer color differentiation.
+- **Icon Support:** Added an icon to the meta section for better visualization in JOSM.
+- **Toggle Options:** Introduced multiple new toggle settings for various trail attributes including surface display, MTB scale display, surface display path, MTB uphill display, MTB scale text display, and surface display text. These toggles allow users to customize the display of different elements based on their preferences.
+- **Width and Visibility Adjustments:** Implemented width and visibility settings for trails based on `width` and `trail_visibility` tags. These adjustments help in visualizing the trail conditions more accurately.
+- **Surface Information:** Added detailed color coding for various surface types, such as paved, gravel, dirt, and more. This includes both on-path and separate path displays.
+- **Text Labels:** Enhanced text display for surface types and MTB scales, providing clear on-map information about trail attributes.
+- **Obstacle Visualization:** Introduced styles for different types of obstacles like vegetation and mud to help identify challenging sections.
+- **Uphill Difficulty:** Added color-coded and dashed patterns for `mtb:scale:uphill` tag to indicate uphill difficulty levels.
+- **Compatibility Enhancements:** Ensured seamless integration with JOSM's default styles, like JOSM Standard and Potlatch 2.
 
-#### Fixed
-- **Text Overlapping Issues**:
-  - Corrected text offset issues to ensure clear and non-overlapping text displays for different path attributes.
-- **String Comparison Issues**:
-  - Addressed issues with string comparisons in the MapCSS `eval` function to ensure proper rendering based on tag values.
+**Changed:**
+
+- **Path Styling:** Updated the styling of paths and tracks with more accurate and visually appealing representations, including changes in dashes, casing colors, and widths.
+- **Meta Information:** Updated the meta information to provide a more comprehensive description and versioning.
+- **Node Styling:** Adjusted node styles for different zoom levels to improve visibility and map readability.
+- **Access Restrictions:** Refined the visual indicators for paths with restricted access based on `access` and `bicycle` tags, making it easier to recognize paths with access limitations.
+
+**Fixed:**
+
+- **Text Overlapping Issues:** Corrected text offset issues to ensure clear and non-overlapping text displays for different path attributes.
+- **String Comparison Issues:** Addressed issues with string comparisons in the MapCSS `eval` function to ensure proper rendering based on tag values.
+- **Opacity Settings:** Improved opacity settings for paths to reflect trail visibility more accurately, enhancing the overall map readability.
 
 ### 2024-07-29
 
-#### Added
-- **MTB Difficulty Scale Display**:
-  - Color-coded MTB difficulty scale based on `mtb:scale` tag.
-  - Text display next to paths indicating MTB difficulty scale with color coding.
-  - Toggle option `mtb_scale_text_display` to enable or disable MTB difficulty scale text display.
-- **MTB Uphill Difficulty Scale Display**:
-  - Color-coded MTB uphill difficulty scale based on `mtb:scale:uphill` tag.
-  - Text display next to paths indicating MTB uphill difficulty scale with color coding.
-  - Toggle option `mtb_uphill_display` to enable or disable MTB uphill difficulty scale display.
-- **Surface Information Display**:
-  - Color-coded surface information display based on `surface` tag.
-  - Text display next to paths indicating surface type with color coding.
-  - Toggle option `surface_display` to enable or disable surface information display.
-  - Added new surface types with appropriate colors: wood, concrete, cobblestone, pebblestone, compacted, fine_gravel, grass_paver, paving_stones, metal, bricks, earth, clay, mud, ground, rock.
+**Initial Release:**
 
-#### Changed
-- **Code Organization**:
-  - Improved readability and organization by consolidating repeated logic and structuring code more efficiently.
-- **Path and Track Styles**:
-  - Updated the text offset for `mtb:scale` and `mtb:scale:uphill` to avoid overlapping with surface information text.
-  - Ensured that the styles work seamlessly with JOSM default styles like [JOSM Standard](https://josm.openstreetmap.de/browser/trunk/resources/styles/standard/elemstyles.mapcss) and [Potlatch 2](https://josm.openstreetmap.de/wiki/Styles/Potlatch2).
-- **Access Restrictions Display**:
-  - Implemented display for restricted access (no, private, permissive) for tracks and paths with specific color coding and dash patterns.
-
-#### Fixed
-- **Text Overlapping Issues**:
-  - Corrected text offset issues to ensure clear and non-overlapping text displays for different path attributes.
-- **String Comparison Issues**:
-  - Addressed issues with string comparisons in the MapCSS `eval` function to ensure proper rendering based on tag values.
+- **Basic Path Styles:** Implemented basic styles for paths, tracks, cycleways, and footways.
+- **Surface Information:** Introduced surface information display for tracks and paths with toggle options.
+- **MTB Scale Display:** Added MTB difficulty scale display with color-coded indicators based on the `mtb:scale` tag.
+- **Text Labels:** Included text labels for MTB scales and surface information to enhance map readability.
+- **Basic Road Styles:** Implemented basic styling for unclassified, residential, tertiary, and service roads.
+- **Waterway Styles:** Added basic styles for waterways.
+- **Route Relation Underlay:** Introduced visual underlays for bicycle and MTB route relations.
+- **Obstacle Styles:** Implemented basic visualization for obstacles like vegetation and mud.
