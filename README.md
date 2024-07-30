@@ -46,7 +46,7 @@ The primary purpose of this style is to provide a familiar visual environment fo
 
 ### Toggle Options in JOSM
 
-(images/JOSM-style-trailmap.jpg)
+![Toggle options image](images/how-to-style.png)
 
 This style includes settings that allow you to toggle the visibility of certain elements such as the MTB difficulty scale, uphill difficulty scale, and surface information. To access and modify these settings:
 
