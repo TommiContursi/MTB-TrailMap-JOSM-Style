@@ -10,7 +10,7 @@ meta
 
 meta[lang=en]
 {
-    title: "Trailmap Style";
+    title: "MTB Trailmap (Trail Difficulty, uphill difficulty, width, visibility and surface)";
     description: "JOSM Style";
 }
 
@@ -301,8 +301,15 @@ way[trail_visibility=no] {
     dashes-background-opacity: 0.25;
 }
 
-/* MTB scale styles  */
-way[mtb:scale] {
+/* MTB scale styles with user toggle option */
+setting::mtb_scale_display {
+    default: true;
+    type: boolean;
+    label: "Display MTB Difficulty Scale";
+    description: "Toggle display of MTB Difficulty Scale";
+}
+
+way[mtb:scale][setting("mtb_scale_display")] {
     casing-color: eval(
         tag("mtb:scale") == "0-" ? "#50d6eb" :
         tag("mtb:scale") == "0" ? "#75e009" :
