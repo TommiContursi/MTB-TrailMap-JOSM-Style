@@ -29,7 +29,7 @@ The primary purpose of this style is to provide a familiar visual environment fo
 - **MTB Difficulty Scale**: Indicates MTB difficulty scale with color coding, making it easy to distinguish trails at a glance.
 - **MTB Difficulty Scale Uphill**: Displays a secondary line next to the path for the uphill difficulty scale, providing detailed information for mountain bikers.
 - **Text Display**: Shows text labels next to paths for MTB difficulty scale and uphill difficulty scale, providing clear, on-map information about trail difficulty.
-- **Surface Information**: Displays surface information with color coding and text labels next to paths, indicating the type of surface (e.g., paved, gravel, dirt).
+- **Surface Information**: Displays paths' and trails' surface information with color coding and text labels next to paths, indicating the type of surface (e.g., paved, gravel, dirt).
 - **Toggle Options**: Users can easily toggle the visibility of various elements such as the MTB difficulty scale, uphill difficulty scale, and surface information, allowing for a cleaner map view based on individual preferences.
 - **Compatibility**: This style is designed to work seamlessly with JOSM's default styles, such as the [JOSM Standard](https://josm.openstreetmap.de/browser/trunk/resources/styles/standard/elemstyles.mapcss) and [Potlatch 2](https://josm.openstreetmap.de/wiki/Styles/Potlatch2) styles, ensuring it can be used alongside other popular styles without conflicts.
 - **Access Restrictions**: Visually indicates paths with restricted access, such as those that are private, permissive, or not accessible to bicycles, helping users quickly identify paths with access limitations.
@@ -54,12 +54,16 @@ This style includes settings that allow you to toggle the visibility of certain 
 4. In the Map Paint Styles panel, find the Trailmap Inspired Style.
 5. Click on the wrench icon next to the style name to open the style settings.
 6. Here, you can see various toggle options:
-   - **Display MTB Difficulty Scale**: Toggle the display of MTB difficulty scale color coding on paths.
-   - **Display Difficulty Text**: Toggle the display of MTB difficulty scale text next to the paths.
-   - **Display MTB Uphill Difficulty Scale**: Toggle the display of MTB uphill difficulty scale color coding on paths.
-   - **Display Surface Information**: Toggle the display of surface information for paths and tracks.
+- **Display MTB Difficulty Scale**: Toggle the display of MTB difficulty scale color coding on paths.
+- **Text for MTB Difficulty**: Toggle the display of MTB difficulty scale text over the paths.
+- **Display MTB Uphill Difficulty Scale**: Toggle the display of MTB uphill difficulty scale color coding next to the paths.
+- **Text for MTB Uphill Difficulty**: Toggle the display of MTB uphill difficulty scale text next to the paths.
+- **Display surface on a separate path**: Toggle the display of surface information on a separate path layer next to the paths.
+- **Display surface on paths**: Toggle the display of surface information directly on the paths. Note that the surface coloring can't be seen if the MTB Difficulty Scale option is enabled.
+- **Text for surface**: Toggle the display of surface type text next to the paths.
+- **Display path opacity**: Toggle path opacity based on trail visibility.
 
-By default, all these options are enabled. You can disable any of these options based on your preference.
+By default, all these options are enabled except `Display surface on a separate path`. You can disable any of these options based on your preference.
 ---
 
 ## Contribution
@@ -78,32 +82,33 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 Paths are color-coded based on their MTB difficulty scale:
 - `mtb:scale=0-`: Light Blue `#50d6eb`
-- `mtb:scale=0`: Green `#75e009`
-- `mtb:scale=1`: Yellow `#e3e800`
+- `mtb:scale=0`: Green `#75df08`
+- `mtb:scale=1`: Yellow `#d8dc00`
 - `mtb:scale=2`: Orange `#feb13e`
-- `mtb:scale=3`: Red `#ff4454`
-- `mtb:scale=4`: Magenta `#f20bab`
-- `mtb:scale=5`: Purple `#bf1cf5`
-- `mtb:scale=6`: Dark Purple `#8100ac`
+- `mtb:scale=3`: Red `#ff4355`
+- `mtb:scale=4`: Magenta `#e410dd`
+- `mtb:scale=5`: Purple `#9600c8`
+- `mtb:scale=6`: Dark Purple `#8101ad`
 
 ### MTB Difficulty Scale Uphill
 
 Paths are color-coded based on their MTB uphill difficulty scale, displayed as a secondary line next to the path:
-- `mtb:scale:uphill=1`: Yellow `#e3e800`
+- `mtb:scale:uphill=0`: Green `#75df08`
+- `mtb:scale:uphill=1`: Yellow `#d8dc00`
 - `mtb:scale:uphill=2`: Orange `#feb13e`
-- `mtb:scale:uphill=3`: Red `#ff4454`
-- `mtb:scale:uphill=4`: Magenta `#f20bab`
-- `mtb:scale:uphill=5`: Purple `#bf1cf5`
+- `mtb:scale:uphill=3`: Red `#ff4355`
+- `mtb:scale:uphill=4`: Magenta `#e410dd`
+- `mtb:scale:uphill=5`: Purple `#8101ad`
 
 ### Visibility Based Styles
 
 Paths with varying visibility are displayed with different dash patterns and opacity levels:
-- `trail_visibility=excellent`: Dash pattern `8, 5`
-- `trail_visibility=good`: Dash pattern `8, 5`
-- `trail_visibility=intermediate`: Dash pattern `6, 5`, reduced opacity
-- `trail_visibility=bad`: Dash pattern `6, 5`, further reduced opacity
-- `trail_visibility=horrible`: Dash pattern `6, 5`, even more reduced opacity
-- `trail_visibility=no`: Dash pattern `6, 5`, lowest opacity
+- `trail_visibility=excellent`: Dash pattern `10, 6`
+- `trail_visibility=good`: Dash pattern `10, 6`
+- `trail_visibility=intermediate`: Dash pattern `2, 2`
+- `trail_visibility=bad`: Dash pattern `2, 2`
+- `trail_visibility=horrible`: Dash pattern `2, 2`
+- `trail_visibility=no`: Dash pattern `2, 2`
 
 ### Access Restrictions
 
@@ -118,15 +123,15 @@ Paths are color-coded based on their surface type, with text labels displaying t
 - `surface=asphalt`: Darker Gray `#333333`
 - `surface=gravel`: Light Gray `#cccccc`
 - `surface=dirt`: Brown `#a52a2a`
-- `surface=grass`: Green `#7cfc00`
+- `surface=grass`: Green `#006400`
 - `surface=sand`: Sandy Brown `#f4a460`
 - `surface=wood`: Burlywood `#deb887`
 - `surface=concrete`: Gray `#808080`
 - `surface=cobblestone`: Saddle Brown `#8b4513`
-- `surface=pebblestone`: Dark Gray `#a9a9a9`
+- `surface=pebblestone`: Dark Gray `#555555`
 - `surface=compacted`: Dark Goldenrod `#b8860b`
-- `surface=fine_gravel`: Light Gray `#d3d3d3`
-- `surface=grass_paver`: Green `#7cfc00`
+- `surface=fine_gravel`: Dark Gray `#555555`
+- `surface=grass_paver`: Green `#006400`
 - `surface=paving_stones`: Sienna `#a0522d`
 - `surface=metal`: Light Steel Blue `#b0c4de`
 - `surface=bricks`: Firebrick `#b22222`
@@ -139,10 +144,34 @@ Paths are color-coded based on their surface type, with text labels displaying t
 
 ## Changelog
 
-### [1_2024-07-30] - 2024-07-30
+### 2024-07-30
 
 #### Added
-- **MTB Difficulty Scale Display**: 
+- **Path Opacity**:
+  - Toggle option `path_opacity` to enable or disable path opacity based on trail visibility.
+- **Updated Colors**:
+  - Adjusted colors for various path attributes to improve visibility and differentiation.
+- **Separate Path Surface Display**:
+  - Added option to display surface information on a separate path layer.
+
+#### Changed
+- **Text Offsets**:
+  - Updated text offsets for `mtb:scale` and `mtb:scale:uphill` to avoid overlapping with surface information text.
+- **Simplified Code**:
+  - Consolidated and simplified various sections of the code for better readability and maintainability.
+- **Surface Display**:
+  - Improved logic for surface display on paths with clearer color differentiation.
+
+#### Fixed
+- **Text Overlapping Issues**:
+  - Corrected text offset issues to ensure clear and non-overlapping text displays for different path attributes.
+- **String Comparison Issues**:
+  - Addressed issues with string comparisons in the MapCSS `eval` function to ensure proper rendering based on tag values.
+
+### 2024-07-29
+
+#### Added
+- **MTB Difficulty Scale Display**:
   - Color-coded MTB difficulty scale based on `mtb:scale` tag.
   - Text display next to paths indicating MTB difficulty scale with color coding.
   - Toggle option `mtb_scale_text_display` to enable or disable MTB difficulty scale text display.
