@@ -10,57 +10,62 @@ meta
 }
 /* Settings toggles for users */
 
-/* Toggle for displaying surface information */
+/* Toggle for displaying surface information on a separate path */
 setting::surface_display {
     default: false;
     type: boolean;
-    label: "Display surface on a separate path ";
+    label: "Display Surface on Separate Paths";
 }
 
 /* MTB scale styles with user toggle option */
 setting::mtb_scale_display {
     default: true;
     type: boolean;
-    label: "Display MTB Difficulty on paths";
+    label: "Display MTB Difficulty on Paths";
 }
+
 /* Surface styles with user toggle option */
 setting::surface_display_path {
     default: true;
     type: boolean;
-    label: "Display surface on paths";
+    label: "Display Surface on Paths";
 }
+
 /* MTB uphill scale styles with user toggle option */
 setting::mtb_uphill_display {
     default: true;
     type: boolean;
-    label: "Display MTB Uphill Difficulty on a separate path";
+    label: "Display MTB Uphill Difficulty on Separate Paths";
 }
 
 /* Text display for mtb:scale */
 setting::mtb_scale_text_display {
     default: true;
     type: boolean;
-    label: "Text for MTB Difficulty";
+    label: "Text for MTB Difficulty on Paths";
 }
 
 /* MTB uphill scale text with user toggle option */
 setting::mtb_uphill_display_text {
     default: true;
     type: boolean;
-    label: "Text for MTB Uphill Difficulty";
+    label: "Text for MTB Uphill Difficulty on Separate Paths";
 }
+
 /* Surface text with user toggle option */
 setting::surface_display_text {
     default: true;
     type: boolean;
-    label: "Text for surface";
+    label: "Text for Surface on Paths";
 }
+
 /* Disable path opacity */
 setting::path_opacity {
-    default: True;
+    default: true;
     type: boolean;
-    label: "Display path opacity (opacity used for trail visibility)";
+    label: "Display Path Opacity Based on Visibility";
 }
+
 /* Basic canvas background color
 canvas {
     fill-color: #606060;
