@@ -9,18 +9,47 @@ The **MTB Trailmap Style for JOSM** is designed to help [OpenStreetMap (OSM)](ht
 
 ---
 
-### Key Features and Benefits
+## Key Features and Benefits
 
 This JOSM style replicates the visual elements of Trailmap.fi, such as color-coded trail difficulty levels ja trail visibility. In addition to mimicking the visual style, this JOSM style includes extra features not found on Trailmap.fi, such as the uphill difficulty scale, text labels for MTB difficulty, and surface information. These enhancements offer additional functionality for users to visualize more detailed aspects of trail data, providing a comprehensive view of the trail conditions. 
 
-- **MTB Difficulty Scale**: Color-coded indicators based on the `mtb:scale` tag, which rates trails on a scale from 0 to 6. This scale indicates how difficult the trail is to ride, with 0 being the easiest and 6 being the most challenging. This helps in distinguishing trails by their difficulty levels at a glance. [Learn more about the `mtb:scale` tag on the OpenStreetMap wiki](https://wiki.openstreetmap.org/wiki/Key:mtb:scale).
-- **Uphill Difficulty Scale**: Adds a secondary line to indicate uphill difficulty using the `mtb:scale:uphill` tag. This helps mountain bikers prepare for steep or difficult uphill segments. [Learn more about the `mtb:scale:uphill` tag on the OpenStreetMap wiki](https://wiki.openstreetmap.org/wiki/Key:mtb:scale:uphill).
-- **Trail Visibility**: Dash patterns based on the `trail_visibility` tag, showing how visible and well-marked the trail is. This ranges from excellent visibility to no visibility. [Learn more about the `trail_visibility` tag on the OpenStreetMap wiki](https://wiki.openstreetmap.org/wiki/Key:trail_visibility).
-- **Trail Width**: Variations based on the `width` tag, indicating the physical width of the trail. This information is useful for understanding how wide a trail is and whether it can accommodate different types of users or activities. [Learn more about the `width` tag on the OpenStreetMap wiki](https://wiki.openstreetmap.org/wiki/Key:width).
-- **Surface Information**: Color-coded based on the `surface` tag, indicating the type of surface, such as paved, gravel, or dirt. This helps users anticipate the trail conditions and choose the right equipment. [Learn more about the `surface` tag on the OpenStreetMap wiki](https://wiki.openstreetmap.org/wiki/Key:surface).
-- **Identify Access Restrictions and Obstacles**: Indicators based on `access`, `bicycle`, and `obstacle` tags, helping users recognize paths with restricted access or potential obstacles like vegetation or mud, ensuring safer and more informed route planning.
-- **Customizable Toggles**: Options to toggle the visibility of MTB difficulty, uphill difficulty, trail visibility, width, and surface information for a tailored mapping experience.
-- **Compatibility**: Seamlessly integrates with JOSM's default styles, such as [JOSM Standard](https://josm.openstreetmap.de/browser/trunk/resources/styles/standard/elemstyles.mapcss) and [Potlatch 2](https://josm.openstreetmap.de/wiki/Styles/Potlatch2), ensuring it can be used alongside other popular styles without conflicts.
+### MTB Difficulty Scale
+Color-coded indicators based on the `mtb:scale` tag, which rates trails on a scale from 0 to 6. This scale indicates how difficult the trail is to ride, with 0 being the easiest and 6 being the most challenging. This helps in distinguishing trails by their difficulty levels at a glance. [Learn more about the `mtb:scale` tag on the OpenStreetMap wiki](https://wiki.openstreetmap.org/wiki/Key:mtb:scale).
+
+![image](https://github.com/user-attachments/assets/c62d0691-d6fd-4c0e-9ab0-c7ce31725ed7)
+
+### Uphill Difficulty Scale
+Adds a secondary line to indicate uphill difficulty using the `mtb:scale:uphill` tag. This helps mountain bikers prepare for steep or difficult uphill segments. [Learn more about the `mtb:scale:uphill` tag on the OpenStreetMap wiki](https://wiki.openstreetmap.org/wiki/Key:mtb:scale:uphill).
+
+![image](https://github.com/user-attachments/assets/25744ade-47e6-4dd3-87bf-1ffab9a70be8)
+
+### Trail Visibility
+Dash patterns based on the `trail_visibility` tag, showing how visible and well-marked the trail is. This ranges from excellent visibility to no visibility. [Learn more about the `trail_visibility` tag on the OpenStreetMap wiki](https://wiki.openstreetmap.org/wiki/Key:trail_visibility).
+
+![image](https://github.com/user-attachments/assets/3f3f14e9-efa3-4e6f-970b-8e6cb97dc9c0)
+
+### Trail Width
+Variations based on the `width` tag, indicating the physical width of the trail. This information is useful for understanding how wide a trail is and whether it can accommodate different types of users or activities. [Learn more about the `width` tag on the OpenStreetMap wiki](https://wiki.openstreetmap.org/wiki/Key:width).
+
+![image](https://github.com/user-attachments/assets/d7156dde-33aa-4abb-b991-98abe888d211)
+
+### Surface Information
+Color-coded based on the `surface` tag, indicating the type of surface, such as paved, gravel, or dirt. This helps users anticipate the trail conditions and choose the right equipment. [Learn more about the `surface` tag on the OpenStreetMap wiki](https://wiki.openstreetmap.org/wiki/Key:surface).
+
+![image](https://github.com/user-attachments/assets/eb0a4ba7-45d7-41ce-b634-57199580b1b2)
+
+### Identify Access Restrictions and Obstacles
+Indicators based on `access`, `bicycle`, and `obstacle` tags, helping users recognize paths with restricted access or potential obstacles like vegetation or mud, ensuring safer and more informed route planning.
+
+![image](https://github.com/user-attachments/assets/2a385242-983e-43ae-b80c-10cc5d3dc60d)
+
+### Customizable Toggles
+Options to toggle the visibility of MTB difficulty, uphill difficulty, trail visibility, width, and surface information for a tailored mapping experience.
+
+![image](https://github.com/user-attachments/assets/4a99d052-1e08-4727-bd41-a7177beb0bf6)
+
+### Compatibility
+Seamlessly integrates with JOSM's default styles, such as [JOSM Standard](https://josm.openstreetmap.de/browser/trunk/resources/styles/standard/elemstyles.mapcss) and [Potlatch 2](https://josm.openstreetmap.de/wiki/Styles/Potlatch2), ensuring it can be used alongside other popular styles without conflicts.
 
 Each of these features helps to draw trails and paths in the JOSM editor with varying styles and colors, making it easier to interpret the map data and make informed decisions while mapping or navigating.
 
@@ -63,7 +92,7 @@ By using this map style, contributors can see real-time previews of their edits,
 
 Once the style is applied, you can enable or disable the visibility of various elements such as MTB difficulty scale, uphill difficulty scale, and surface information. Adjusting these settings can help you manage the visual clutter and focus on the most relevant data for your mapping tasks. See the section below for detailed instructions on using the toggle options.
 
-![how-to-style](https://github.com/user-attachments/assets/70326628-9501-4be0-86fb-1d7261852034)
+![image](https://github.com/user-attachments/assets/4a99d052-1e08-4727-bd41-a7177beb0bf6)
 
 This style includes settings that allow you to toggle the visibility of certain elements such as the MTB difficulty scale, uphill difficulty scale, and surface information. To access and modify these settings:
 
