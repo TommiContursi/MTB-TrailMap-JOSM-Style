@@ -1,23 +1,13 @@
 # MTB Trailmap - Map Style for JOSM
-*Easily visualize mountain bike trail difficulty, uphill difficulty, trail width, visibility, and surface type with color-coded indicators and text labels while editing OpenStreetMaps with JOSM Editor. The map style includes toggle options that allow you to choose which trail attributes are displayed on the map layer. This style allows users to see how their edits will appear on platforms dedicated to mountain biking trails, ensuring accuracy and consistency in the map data for mountain biking enthusiasts worldwide.*
+
+**Easily visualize mountain bike trail difficulty, uphill difficulty, trail width, visibility, and surface type with color-coded indicators and text labels while editing OpenStreetMaps with JOSM Editor.** The map style includes toggle options that allow you to choose which trail attributes are displayed on the map layer. This style allows users to see how their edits will appear on platforms dedicated to mountain biking trails, ensuring accuracy and consistency in the map data for mountain biking enthusiasts worldwide.
+
+The **MTB Trailmap Style for JOSM** is designed to help [OpenStreetMap (OSM)](https://www.openstreetmap.org/) contributors visualize mountain biking (MTB) trail data within the [Java OpenStreetMap editor (JOSM Editor)](https://josm.openstreetmap.de). Inspired by the Finnish [Trailmap.fi](https://web.trailmap.fi) service, this style is also useful for map editors of other MTB mapping platforms like [mtbmap.no](https://mtbmap.no), which use similar data. This MapCSS-based style provides real-time visual feedback, which is invaluable for ensuring edits are accurate and consistent.
 
 ![JOSM-style-trailmap](https://github.com/user-attachments/assets/8833d127-f0b9-4850-b588-903e973cc64d)
 *Example of how the map style looks on JOSM editor combined with the Potlatch2 map style.*
 
-## Introduction
-The **MTB Trailmap Style for JOSM** is designed to help [OpenStreetMap (OSM)](https://www.openstreetmap.org/) contributors visualize mountain biking (MTB) trail data within the [Java OpenStreetMap editor (JOSM Editor)](https://josm.openstreetmap.de). Inspired by the Finnish [Trailmap.fi](https://web.trailmap.fi) service, this style allows users to see how their edits will appear on platforms dedicated to mountain biking trails, ensuring accuracy and consistency in the map data. This style is also useful for other MTB mapping platforms like [mtbmap.no](https://mtbmap.no) which use similar data.
-
-### Project Background
-
-As an OSM contributor since 2010, I have focused on mapping natural features and trails suitable for mountain biking. In 2024, I recognized the need for a tool to better visualize MTB trail data in JOSM. JOSM is a powerful editor, but it can be challenging to get a clear overview of trail conditions and difficulty without switching between different map layers or external services that can visualize trail data.
-
-To address this need, I developed the MTB Trailmap Style using the MapCSS language. Despite its complex and poorly documented nature, this project marks my first attempt at utilizing MapCSS. There may be some logical inconsistencies or errors, but I hope the end result provides significant value to map editors.
-
-This project aims to replicate the visual style of Trailmap.fi within JOSM. Although it is not an exact copy or based on Trailmap.fi's code, this style has been developed through visual inspection to closely match its appearance. The goal is to provide immediate visual feedback on map edits, making it easier to ensure that trail data is accurately represented. While some map elements may be rendered differently, this style serves as a valuable tool for map editors, offering a close approximation of the Trailmap.fi visual style. Users should not expect a perfect one-to-one replication, but rather a practical and useful representation for OSM editing purposes.
-
-This MTB Trailmap Style includes features such as color-coded trail difficulty levels, indicators for uphill difficulty, text labels for MTB difficulty and surface information, and visualization of trail width and visibility. These enhancements provide a comprehensive view of trail conditions directly within JOSM, streamlining the mapping process and improving accuracy for platforms like Trailmap.fi, MTBmap.no and other MTB mapping services that use similar OSM data.
-
-With this map style, map contributors can see real-time previews of their map edits, avoiding the need to wait for updates on external services, which can take hours or even days. This tool aims to be invaluable for anyone involved in mapping MTB trails, ensuring that edits are consistent and accurately reflected across different platforms. The global applicability of this style means that it can be beneficial for MTB mapping efforts worldwide, supporting various platforms and communities dedicated to mountain biking.
+---
 
 ### Key Features and Benefits
 
@@ -54,11 +44,24 @@ Each of these features helps to draw trails and paths in the JOSM editor with va
 4. Paste [the URL of this style's raw content](https://raw.githubusercontent.com/TommiContursi/MTB-TrailMap-JOSM-Style/main/MTB-Trailmap-JOSM-map-style.mapcss) or use the local file path if you've downloaded it.
 5. Apply the changes.
 
-## Usage
+## How to use the MTB Trailmap Style in JOSM
 
-Once the style is applied, you can enable or disable the visibility of various elements such as MTB difficulty scale, uphill difficulty scale, and surface information. See the section below for detailed instructions on using the toggle options.
+The **MTB Trailmap Style for JOSM** is designed to help [OpenStreetMap (OSM)](https://www.openstreetmap.org/) contributors visualize mountain biking (MTB) trail data within the [Java OpenStreetMap editor (JOSM Editor)](https://josm.openstreetmap.de). This style allows users to see how their edits will appear on platforms dedicated to mountain biking trails, ensuring accuracy and consistency in the map data. By replicating the visual elements of popular MTB mapping services like Trailmap.fi and MTBmap.no, this style provides an intuitive and familiar environment for MTB trail mapping.
+
+### Enhancing MTB Mapping with JOSM
+
+Mapping MTB trails involves tagging various trail attributes such as difficulty levels, surface types, visibility, and width. Accurate mapping is essential for creating reliable trail maps that bikers can use to plan their routes. The MTB Trailmap Style enhances this process by providing immediate visual feedback on these attributes directly within JOSM. This helps contributors:
+
+- **Visualize Trail Difficulty:** See color-coded trail difficulty levels at a glance, making it easier to ensure the data is accurate and helpful for bikers.
+- **Assess Uphill Challenges:** Display uphill difficulty scales, allowing mappers to indicate sections of trails that might be challenging to ascend.
+- **Evaluate Surface Conditions:** Show different surface types directly on the map, providing insights into the trail conditions.
+- **Understand Trail Width and Visibility:** Visualize trail width and visibility, helping to identify narrow or poorly visible trails that might require special attention.
+
+By using this map style, contributors can see real-time previews of their edits, eliminating the need to wait for updates on external services, which can take hours or even days. This makes the tool invaluable for anyone involved in mapping MTB trails, ensuring that edits are consistent and accurately reflected across different platforms. The global applicability of this style means it can benefit MTB mapping efforts worldwide, supporting various platforms and communities dedicated to mountain biking.
 
 ### Toggle Options in JOSM
+
+Once the style is applied, you can enable or disable the visibility of various elements such as MTB difficulty scale, uphill difficulty scale, and surface information. Adjusting these settings can help you manage the visual clutter and focus on the most relevant data for your mapping tasks. See the section below for detailed instructions on using the toggle options.
 
 ![how-to-style](https://github.com/user-attachments/assets/70326628-9501-4be0-86fb-1d7261852034)
 
@@ -68,20 +71,40 @@ This style includes settings that allow you to toggle the visibility of certain 
 2. Load the style by following the installation instructions.
 3. Go to `View` > `Map Paint Styles`.
 4. In the Map Paint Styles panel, find the MTB Trailmap Style.
-5. Click on the wrench icon next to the style name to open the style settings. Optionally, you can right click the style name and find the menu from there. 
+5. Click on the wrench icon next to the style name to open the style settings. Optionally, you can right-click the style name and find the menu from there.
 6. Here, you can see various toggle options:
 
-- **Display MTB Difficulty Scale**: Toggle the display of color-coded MTB difficulty scale on paths.
-- **Text for MTB Difficulty**: Toggle the display of MTB difficulty scale text over the paths.
-- **Display MTB Uphill Difficulty Scale**: Toggle the display of the color-coded MTB uphill difficulty scale next to the paths.
-- **Text for MTB Uphill Difficulty**: Toggle the display of MTB uphill difficulty scale text next to the paths.
-- **Display surface on a separate path**: Toggle the display of surface information on a separate path layer next to the paths.
-- **Display surface on paths**: Toggle the display of surface information directly on the paths. Note that the surface coloring can't be seen if the MTB Difficulty Scale option is enabled.
-- **Text for surface**: Toggle the display of surface-type text next to the paths.
-- **Display path opacity**: Toggle path opacity based on trail visibility.
+- **Display MTB Difficulty on Paths:** Toggle the display of color-coded MTB difficulty scale on paths. This setting shows the trail difficulty levels using different colors based on the `mtb:scale` tag. This feature closely replicates Trailmap.fi.
+- **Text for MTB Difficulty on Paths:** Toggle the display of MTB difficulty scale text over the paths. This setting adds text labels indicating the difficulty level of the trails. **Note:** This feature is not available on Trailmap.fi. Disabling this option will provide a more Trailmap-like experience. However, enabling it can help quickly identify trail difficulties with text labels.
+- **Display MTB Uphill Difficulty on Separate Paths:** Toggle the display of the color-coded MTB uphill difficulty scale next to the paths. This setting shows uphill difficulty levels using different colors based on the `mtb:scale:uphill` tag on a separate line adjacent to the main path. **Note:** This feature is not available on Trailmap.fi. Disabling this option will provide a more Trailmap-like experience. Enabling it can help mountain bikers prepare for challenging uphill sections.
+- **Text for MTB Uphill Difficulty on Separate Paths:** Toggle the display of MTB uphill difficulty scale text next to the paths. This setting adds text labels indicating the uphill difficulty level of the trails on a separate line adjacent to the main path. **Note:** This feature is not available on Trailmap.fi. Disabling this option will provide a more Trailmap-like experience. Enabling it provides clear indications of uphill challenges.
+- **Display Surface on Separate Paths:** Toggle the display of surface information on a separate path layer next to the paths. This setting shows surface types such as paved, gravel, or dirt on a separate line adjacent to the main path. **Note:** This feature is not available on Trailmap.fi. Disabling this option will provide a more Trailmap-like experience. Enabling it helps users understand the trail surfaces more clearly.
+- **Display Surface on Paths:** Toggle the display of surface information directly on the paths. This setting overlays the surface type information on the same line as the paths. **Note that the surface coloring can't be seen if the MTB Difficulty Scale option is enabled.** **Note:** This feature is not available on Trailmap.fi. Disabling this option will provide a more Trailmap-like experience. Enabling it provides detailed surface information directly on the trails.
+- **Text for Surface on Paths:** Toggle the display of surface-type text next to the paths. This setting adds text labels indicating the type of surface (e.g., paved, gravel) along the trails. **Note:** This feature is not available on Trailmap.fi. Disabling this option will provide a more Trailmap-like experience. Enabling it offers clear text indications of the surface type.
+- **Display Path Opacity Based on Visibility:** Toggle path opacity based on trail visibility. This setting adjusts the transparency of paths to reflect how visible they are, based on the `trail_visibility` tag. **Note:** This feature is not available on Trailmap.fi. Disabling this option will provide a more Trailmap-like experience. Enabling it helps to quickly assess trail visibility.
 
-By default, all these options are enabled except `Display surface on a separate path`. You can disable any of these options based on your preference.
+> [!IMPORTANT]
+> By default, all these options are enabled except `Display Surface on Separate Path`. You can disable any of these options based on your preference. If you have all the options enabled and you are examining a map with many MTB trails, especially those that also include `mtb:scale:uphill` data, the view can become very cluttered. Disabling unnecessary settings is recommended to improve clarity. Adjust the visibility of trail attributes according to your specific needs to create a more manageable and clear map view. This will help you focus on the most relevant information and ensure an efficient mapping process.
 
+---
+
+## Project Background
+
+As an OSM contributor since 2010, I have focused on mapping natural features and trails suitable for mountain biking. My passion for outdoor activities such as mountain biking, gravel riding, road cycling, canoeing, and general nature exploration has deeply influenced my contributions. I am also an enthusiastic map researcher and editor. Combining my love for the outdoors with mapping has made it clear that there is a need for better tools to visualize and edit trail data.
+
+Finally in 2024, I recognized the need for a tool to better visualize MTB trail data in JOSM. Despite JOSM being a powerful editor, it can be challenging to get a clear overview of trail conditions and difficulty without switching between different map layers or external services that can visualize trail data.
+
+Inspired by the detailed and user-friendly visual style of Trailmap.fi, I embarked on a project to create a similar style for JOSM. The goal was to bring the clarity and detail of Trailmap.fi into the JOSM environment, making it easier for contributors to see how their edits would appear on MTB-focused platforms. This project was my first attempt at using the MapCSS language, which presented its own set of challenges due to its complexity and lack of comprehensive documentation. Despite these hurdles, I was determined to create a useful tool for the mapping community.
+
+The development process involved carefully examining maps on Trailmap.fi and manually translating what I observed into MapCSS. I did not have access to Trailmap.fi’s code or any automated tools to assist in this process. Instead, it was a meticulous task of visual inspection and manual coding to ensure that the style closely matched the appearance of Trailmap.fi. This approach means that while the style aims to replicate the visual elements of Trailmap.fi, it is not an exact copy, and some elements may look different.
+
+The main objective of this style is to provide immediate visual feedback on map edits within JOSM, ensuring the accurate representation of trail data. This MTB Trailmap Style includes features such as color-coded trail difficulty levels, indicators for uphill difficulty, text labels for MTB difficulty and surface information, and visualization of trail width and visibility. These enhancements offer a comprehensive view of trail conditions directly within JOSM, streamlining the mapping process and improving accuracy for MTB mapping platforms like Trailmap.fi, MTBmap.no, and other MTB mapping services that utilize similar OSM data.
+
+By using this map style, map editors can see real-time previews of their edits, eliminating the need to wait for updates on external services, which can take hours or even days. This makes the tool invaluable for anyone involved in mapping MTB trails, ensuring that edits are consistent and accurately reflected across different platforms. Its global applicability means it can benefit MTB mapping efforts worldwide, supporting various platforms and communities dedicated to mountain biking.
+
+>[!CAUTION]
+>This style is not an exact copy of Trailmap.fi nor based on their code. It has been developed through visual inspection to closely match its appearance. While some elements may be rendered differently, the primary objective is to offer a helpful tool for OSM map editors using JOSM to better visualize their contributions. Users should not expect a perfect one-to-one replication, but rather a practical and useful representation for map editing purposes. Not all elements from Trailmap.fi are rendered the same way. The focus has been on ensuring that mtb:scale is displayed accurately, while trail visibility and trail width are approximations. Additional features such as mtb:scale:uphill, trail surface information and text labels for trails have been added, which are not found in Trailmap.fi.
+>
 ---
 
 ## Contribution
@@ -168,46 +191,3 @@ Paths are color-coded based on their surface type, with text labels displaying t
 - `surface=mud`: Saddle Brown `#8b4513`
 - `surface=ground`: Saddle Brown `#8b4513`
 - `surface=rock`: Gray `#808080`
-  
----
-
-## Change Log
-
-### 2024-07-30
-
-**Added:**
-
-- **Icon Support:** Added an icon to the meta section for better visualization in JOSM.
-- **Toggle Options:** Introduced multiple new toggle settings for various trail attributes including surface display, MTB scale display, surface display path, MTB uphill display, MTB scale text display, and surface display text. These toggles allow users to customize the display of different elements based on their preferences.
-- **Width and Visibility Adjustments:** Implemented width and visibility settings for trails based on `width` and `trail_visibility` tags. These adjustments help in visualizing the trail conditions more accurately.
-- **Surface Information:** Added detailed color coding for various surface types, such as paved, gravel, dirt, and more. This includes both on-path and separate path displays.
-- **Text Labels:** Enhanced text display for surface types and MTB scales, providing clear on-map information about trail attributes.
-- **Obstacle Visualization:** Introduced styles for different types of obstacles like vegetation and mud to help identify challenging sections.
-- **Uphill Difficulty:** Added color-coded and dashed patterns for `mtb:scale:uphill` tag to indicate uphill difficulty levels.
-- **Compatibility Enhancements:** Ensured seamless integration with JOSM's default styles, like JOSM Standard and Potlatch 2.
-
-**Changed:**
-
-- **Path Styling:** Updated the styling of paths and tracks with more accurate and visually appealing representations, including changes in dashes, casing colors, and widths.
-- **Meta Information:** Updated the meta information to provide a more comprehensive description and versioning.
-- **Node Styling:** Adjusted node styles for different zoom levels to improve visibility and map readability.
-- **Access Restrictions:** Refined the visual indicators for paths with restricted access based on `access` and `bicycle` tags, making it easier to recognize paths with access limitations.
-
-**Fixed:**
-
-- **Text Overlapping Issues:** Corrected text offset issues to ensure clear and non-overlapping text displays for different path attributes.
-- **String Comparison Issues:** Addressed issues with string comparisons in the MapCSS `eval` function to ensure proper rendering based on tag values.
-- **Opacity Settings:** Improved opacity settings for paths to reflect trail visibility more accurately, enhancing the overall map readability.
-
-### 2024-07-29
-
-**Initial Release:**
-
-- **Basic Path Styles:** Implemented basic styles for paths, tracks, cycleways, and footways.
-- **Surface Information:** Introduced surface information display for tracks and paths with toggle options.
-- **MTB Scale Display:** Added MTB difficulty scale display with color-coded indicators based on the `mtb:scale` tag.
-- **Text Labels:** Included text labels for MTB scales and surface information to enhance map readability.
-- **Basic Road Styles:** Implemented basic styling for unclassified, residential, tertiary, and service roads.
-- **Waterway Styles:** Added basic styles for waterways.
-- **Route Relation Underlay:** Introduced visual underlays for bicycle and MTB route relations.
-- **Obstacle Styles:** Implemented basic visualization for obstacles like vegetation and mud.
