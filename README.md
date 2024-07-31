@@ -1,7 +1,7 @@
 # MTB Trailmap - Map Style for JOSM
 *Easily visualize mountain bike trail difficulty, uphill difficulty, trail width, visibility, and surface type with color-coded indicators and text labels while editing OpenStreetMaps with JOSM Editor. The map style includes toggle options that allow you to choose which trail attributes are displayed on the map layer. This style allows users to see how their edits will appear on platforms dedicated to mountain biking trails, ensuring accuracy and consistency in the map data for mountain biking enthusiasts worldwide.*
 
-![Trailmap Inspired Style](images/JOSM-style-trailmap.jpg)
+![JOSM-style-trailmap](https://github.com/user-attachments/assets/8833d127-f0b9-4850-b588-903e973cc64d)
 *Example of how the map style looks on JOSM editor combined with the Potlatch2 map style.*
 
 ## Introduction
@@ -60,7 +60,7 @@ Once the style is applied, you can enable or disable the visibility of various e
 
 ### Toggle Options in JOSM
 
-![Toggle options image](images/how-to-style.png)
+![how-to-style](https://github.com/user-attachments/assets/70326628-9501-4be0-86fb-1d7261852034)
 
 This style includes settings that allow you to toggle the visibility of certain elements such as the MTB difficulty scale, uphill difficulty scale, and surface information. To access and modify these settings:
 
