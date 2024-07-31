@@ -16,6 +16,8 @@ Accurate mapping is essential for creating reliable trail maps that bikers can u
 - **[Surface Conditions](#surface-information):** Show different surface types directly on the map, such as dirt, gravel, or pavement, providing insights into the trail conditions and helping bikers choose the right equipment.
 - **[Trail Width](#trail-width):** Visualize trail width to identify narrow single tracks or wider paths, ensuring bikers know what to expect and can plan accordingly.
 - **[Trail Visibility](#trail-visibility):** Assess trail visibility to highlight well-marked routes or paths that might be harder to follow, improving safety and navigation for all users.
+- **[Identify Access Restrictions and Obstacles](#identify-access-restrictions-and-obstacles):** Recognize paths with restricted access or potential obstacles like vegetation or mud, ensuring safer and more informed route planning.
+- **[Customizable Toggles](#customizable-toggles):** Manage the visibility of various trail attributes to focus on the most relevant data for your mapping tasks, helping to manage visual clutter.
 
 Instead of clicking on each line to view its tags, you can see all relevant information visually represented on the map. This ensures that your edits are accurate and consistent by providing real-time previews, allowing you to see how your changes will appear on dedicated MTB platforms. This eliminates the need to wait for updates from external services, which can take hours or even days.
 
