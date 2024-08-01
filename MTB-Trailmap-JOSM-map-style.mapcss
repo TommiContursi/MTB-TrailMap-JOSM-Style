@@ -95,6 +95,17 @@ node:connection {
     symbol-fill-color: yellow;
 }
 
+/*Gates and barriers*/
+node[barrier=gate], node[highway=gate] {icon-width:"25"; icon-image: "presets/barrier/gate.svg"; z-index: 20; }
+node[barrier=lift_gate] {icon-width:"25";icon-image: "presets/barrier/lift_gate.svg"; z-index: 20; }
+node[barrier=kissing_gate] {icon-width:"25";  icon-image: "presets/barrier/barrier_kissing_gate.svg"; z-index: 20; }
+node[barrier=cycle_barrier] {icon-width:"25"; icon-image: "presets/barrier/barrier_cycle_barrier.svg"; z-index: 20; }
+node[barrier=log], node[obstacle=fallen_tree] {icon-width:"25"; icon-image: "presets/barrier/log.svg"; z-index: 20; }
+
+node[noexit=yes] {icon-width:"25"; icon-image: "presets/vehicle/restriction/dead_end.svg"; z-index: 20; }
+node[/^fixme/] {icon-width:"25"; icon-image: "presets/misc/fixme.svg"; z-index: 20; }
+node[fixme=continue] {icon-width:"25"; icon-image: "presets/misc/danger.svg"; z-index: 20; }
+
 /* Basic highway styles for cycleway, track, and path */
 way[highway=~/track|path/] {
     color: #000;
