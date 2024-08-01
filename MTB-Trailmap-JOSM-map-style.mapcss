@@ -435,12 +435,17 @@ way[mtb:scale:uphill][setting("mtb_uphill_display")]::uphill_difficulty {
     tag("mtb:scale:uphill") == "5" ? "#5b0d7a" : "#999999"
 );
     width: eval(
-        tag("width") < 0.6 ? 3 :
-        tag("width") < 0.9 ? 3 :
-        tag("width") < 1.8 ? 4 :
-        tag("width") > 1.8 ? 5 : 3
+        tag("width") < 0.6 ? 4 :
+        tag("width") < 0.9 ? 5 :
+        tag("width") < 1.8 ? 6 :
+        tag("width") > 1.8 ? 7 : 5
     );
-    offset: 5;
+    offset: eval(
+        tag("width") < 0.6 ? 4 :
+        tag("width") < 0.9 ? 6 :
+        tag("width") < 1.8 ? 8 :
+        tag("width") > 1.8 ? 10 : 6
+    );
     /*
     opacity: eval(
         tag("trail_visibility") == "excellent" ? 1 :
