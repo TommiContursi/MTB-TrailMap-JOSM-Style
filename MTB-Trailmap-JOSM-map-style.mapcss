@@ -102,8 +102,8 @@ node:connection {
 node { text-anchor-horizontal: center; text-anchor-vertical: below; }
 node[barrier=gate], node[highway=gate] {icon-width:"25"; icon-image: "presets/barrier/gate.svg"; text: "barrier"; text-offset:0; font-size: 10; text-halo-color: white; text-halo-radius: 1; z-index: 20;}
 node[barrier=lift_gate] {icon-width:"25";icon-image: "presets/barrier/lift_gate.svg"; text-offset:0;  text: "barrier"; text-offset:0; font-size: 10; text-halo-color: white; text-halo-radius: 1; z-index: 20; }
-node[barrier=kissing_gate] {icon-width:"25";  icon-image: "presets/barrier/barrier_kissing_gate.svg"; text-offset:0;  text: "barrier"; text-offset:0; font-size: 10; text-halo-color: white; text-halo-radius: 1; z-index: 20; }
-node[barrier=cycle_barrier] {icon-width:"25"; icon-image: "presets/barrier/barrier_cycle_barrier.svg"; text-offset:0;  text: "barrier"; text-offset:0; font-size: 10; text-halo-color: white; text-halo-radius: 1; z-index: 20; }
+node[barrier=kissing_gate] {icon-width:"25";  icon-image: "presets/barrier/kissing_gate.svg"; text-offset:0;  text: "barrier"; text-offset:0; font-size: 10; text-halo-color: white; text-halo-radius: 1; z-index: 20; }
+node[barrier=cycle_barrier] {icon-width:"25"; icon-image: "presets/barrier/cycle_barrier.svg"; text-offset:0;  text: "barrier"; text-offset:0; font-size: 10; text-halo-color: white; text-halo-radius: 1; z-index: 20; }
 node[barrier=log] {icon-width:"25"; icon-image: "presets/barrier/log.svg"; text-offset:0;  text: "barrier"; text-offset:0; font-size: 10; text-halo-color: white; text-halo-radius: 1; z-index: 20; }
 node[obstacle=fallen_tree] {icon-width:"25"; icon-image: "presets/barrier/log.svg"; text-offset:0;  text: "obstacle"; text-offset:0; font-size: 10; text-halo-color: white; text-halo-radius: 1; z-index: 20; }
 node[noexit=yes] {icon-width:"25"; icon-image: "presets/vehicle/restriction/dead_end.svg";z-index: 20; }
