@@ -2,7 +2,7 @@
 
 **Easily visualize mountain bike trail difficulty, uphill difficulty, trail width, visibility, and surface type with color-coded indicators and text labels while editing OpenStreetMaps with JOSM Editor.**
 
-![JOSM-style-trailmap](https://github.com/user-attachments/assets/8833d127-f0b9-4850-b588-903e973cc64d)
+![image](https://github.com/user-attachments/assets/43e87e65-d94e-4bf0-84c5-3d065ce6c6aa)
 *Example of how the map style looks on JOSM editor combined with the Potlatch2 map style.*
 
 ### Introduction
