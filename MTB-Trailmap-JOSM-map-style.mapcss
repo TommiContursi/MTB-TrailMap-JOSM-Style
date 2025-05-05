@@ -2,70 +2,122 @@ meta
 {
     title: "MTB Trailmap (MTB Difficulty, uphill difficulty, path width, visibility and surface)";
     icon: "presets/sport/cycling.svg";
-    description: "Easily visualize MTB trail difficulty, uphill difficulty, trail width, visibility, and surface type with color-coded indicators and text labels. Inspired by Trailmap.fi, this style ensures your edits are accurately reflected, providing clear and detailed trail information for mountain biking. Includes toggle options allow you to choose which trail attributes are displayed on the map layer. Designed to work seamlessly with JOSM's default styles, such as JOSM Standard and Potlatch 2.";
-    version: "1.1.1_2024-08-01";
+    description: "Easily visualize MTB trail difficulty, uphill difficulty, trail width, visibility, and surface type with color-coded indicators and Text labels. Inspired by Trailmap.fi, this style ensures your edits are accurately reflected, providing clear and detailed trail information for mountain biking. Includes toggle options allow you to choose which trail attributes are displayed on the map layer. Designed to work seamlessly with JOSM's default styles, such as JOSM Standard and Potlatch 2.";
+    version: "1.2.0_2025-05-05";
     author: "Tommi Contursi";
     link: "https://github.com/TommiContursi/MTB-TrailMap-JOSM-Style";
     min-josm-version: 7110;
 }
 /* Settings toggles for users */
-
-/* Toggle for displaying surface information on a separate path */
-setting::surface_display {
-    default: false;
-    type: boolean;
-    label: "Display Surface on Separate Paths";
+/* Group labels */
+settings::mtb_difficulty {
+  label: "MTB Difficulty (mtb:scale)";
+}
+settings::mtb_uphill_difficulty {
+  label: "MTB Uphill Difficulty (mtb:scale:uphill)";
+}
+settings::path_surface {
+  label: "Path Surface (surface)";
+}
+settings::trail_visibility {
+  label: "Trail Visibility (trail_visibility)";
+}
+settings::surface_quality {
+  label: "Surface Quality (smoothness)";
+}
+settings::path_width {
+  label: "Path Width (width)";
 }
 
-/* MTB scale styles with user toggle option */
+/* MTB Difficulty */
 setting::mtb_scale_display {
-    default: true;
-    type: boolean;
-    label: "Display MTB Difficulty on Paths";
+  default: true;
+  type: boolean;
+  label: "Color-coded line (mtb:scale)";
+  group: "mtb_difficulty";
 }
-
-/* Surface styles with user toggle option */
-setting::surface_display_path {
-    default: true;
-    type: boolean;
-    label: "Display Surface on Paths";
-}
-
-/* MTB uphill scale styles with user toggle option */
-setting::mtb_uphill_display {
-    default: true;
-    type: boolean;
-    label: "Display MTB Uphill Difficulty on Separate Paths";
-}
-
-/* Text display for mtb:scale */
 setting::mtb_scale_text_display {
-    default: true;
-    type: boolean;
-    label: "Text for MTB Difficulty on Paths";
+  default: true;
+  type: boolean;
+  label: "Text label (mtb:scale)";
+  group: "mtb_difficulty";
 }
 
-/* MTB uphill scale text with user toggle option */
+/* MTB Uphill Difficulty */
+setting::mtb_uphill_display {
+  default: true;
+  type: boolean;
+  label: "Separate color-coded line (mtb:scale:uphill)";
+  group: "mtb_uphill_difficulty";
+}
 setting::mtb_uphill_display_text {
-    default: true;
-    type: boolean;
-    label: "Text for MTB Uphill Difficulty on Separate Paths";
+  default: true;
+  type: boolean;
+  label: "Text label (mtb:scale:uphill)";
+  group: "mtb_uphill_difficulty";
 }
 
-/* Surface text with user toggle option */
+/* Path Surface */
+setting::surface_display_path {
+  default: true;
+  type: boolean;
+  label: "Color-coded line (surface)";
+  group: "path_surface";
+}
 setting::surface_display_text {
-    default: true;
-    type: boolean;
-    label: "Text for Surface on Paths";
+  default: true;
+  type: boolean;
+  label: "Text label (surface)";
+  group: "path_surface";
+}
+setting::surface_display {
+  default: false;
+  type: boolean;
+  label: "Separate color-coded line (surface)";
+  group: "path_surface";
 }
 
-/* Disable path opacity */
+/* Trail Visibility */
+setting::trail_visibility_display {
+  default: false;
+  type: boolean;
+  label: "Color-coded line (trail_visibility)";
+  group: "trail_visibility";
+}
+setting::trail_visibility_text_display {
+  default: false;
+  type: boolean;
+  label: "Text label (trail_visibility)";
+  group: "trail_visibility";
+}
 setting::path_opacity {
-    default: true;
-    type: boolean;
-    label: "Display Path Opacity Based on Visibility";
+  default: true;
+  type: boolean;
+  label: "Opacity (trail_visibility)";
+  group: "trail_visibility";
 }
 
+/* Surface Quality */
+setting::smoothness_display {
+  default: false;
+  type: boolean;
+  label: "Color-coded line (smoothness)";
+  group: "surface_quality";
+}
+setting::smoothness_text_display {
+  default: false;
+  type: boolean;
+  label: "Text label (smoothness)";
+  group: "surface_quality";
+}
+
+/* Path Width */
+setting::width_text {
+  default: false;
+  type: boolean;
+  label: "Text label (width)";
+  group: "path_width";
+}
 /* Basic canvas background color
 canvas {
     fill-color: #606060;
@@ -141,7 +193,7 @@ way[highway=~/track|path/][width] {
         tag("width") < 0.9 ? 2 :
         tag("width") < 1.8 ? 3 :
         tag("width") > 1.8 ? 4 : 2
-        
+
     );
     casing-width: eval(
         tag("width") < 0.6 ? 2 :
@@ -274,6 +326,7 @@ relation[type=route][route=~/bicycle|mtb/][network=lcn] > way::relation_underlay
     linecap: none;
 }
 
+/* Show mtb:scale as text */
 way|z18-[mtb:scale][setting("mtb_scale_text_display")]::mtbscale_layer {
     font-family: Arial;
     text: concat("S", tag("mtb:scale"));
@@ -389,6 +442,7 @@ way|z20-[highway=~/track|path/][surface][setting("surface_display_text")]::surfa
     text-offset: -14;
 }
 
+/* Show mtb:scale as colors on the path */
 way[mtb:scale][setting("mtb_scale_display")] {
     casing-color: eval(
         tag("mtb:scale") == "0-" ? "#10c5a1" :
@@ -440,6 +494,8 @@ way|z20-[mtb:scale][mtb:scale:uphill][setting("mtb_uphill_display_text")]::uphil
     font-size: 14;
     text-offset: 16;
 }
+
+/* Show mtb:scale:uphill as colors on the path */
 way[mtb:scale:uphill][setting("mtb_uphill_display")]::uphill_difficulty {
     color: eval(
     tag("mtb:scale:uphill") == "0" ? "#3e5a04" :
@@ -498,6 +554,98 @@ way[mtb:scale:uphill=4][setting("mtb_uphill_display")]::uphill_difficulty {
 }
 way[mtb:scale:uphill=5][setting("mtb_uphill_display")]::uphill_difficulty {
     dashes: 1.4, 3, 1.4, 3, 1.4, 3, 1.4, 3, 1.4, 20;
+}
+
+/* Text display for trail_visibility */
+way|z18-[trail_visibility][setting("trail_visibility_display_text")]::trail_visibility_text {
+    text: tag("trail_visibility");
+    text-color: #000000;
+    font-size: 10;
+    font-family: Arial;
+    font-weight: bold;
+    text-offset: 16;
+    text-position: line;
+    z-index: 3;
+    text-halo-color: #ffffff;
+    text-halo-radius: 1;
+}
+way|z19-[trail_visibility][setting("trail_visibility_display_text")]::trail_visibility_text {
+    font-size: 11;
+    text-offset: 18;
+}
+way|z20-[trail_visibility][setting("trail_visibility_display_text")]::trail_visibility_text {
+    font-size: 13;
+    text-offset: 20;
+}
+
+/* Text display for smoothness */
+way|z18-[smoothness][setting("smoothness_display_text")]::smoothness_text {
+    text: tag("smoothness");
+    text-color: #202020;
+    font-size: 10;
+    font-family: Arial;
+    font-weight: bold;
+    text-offset: 18;
+    text-position: line;
+    z-index: 3;
+    text-halo-color: #ffffff;
+    text-halo-radius: 1;
+}
+way|z19-[smoothness][setting("smoothness_display_text")]::smoothness_text {
+    font-size: 11;
+    text-offset: 18;
+}
+way|z20-[smoothness][setting("smoothness_display_text")]::smoothness_text {
+    font-size: 13;
+    text-offset: 20;
+}
+
+/* Text display for width */
+way|z18-[width][setting("width_display_text")]::width_text {
+    text: concat(tag("width"), " m");
+    text-color: #000000;
+    font-size: 10;
+    font-family: Arial;
+    font-weight: bold;
+    text-offset: 20;
+    text-position: line;
+    z-index: 3;
+    text-halo-color: #ffffff;
+    text-halo-radius: 1;
+}
+way|z19-[width][setting("width_display_text")]::width_text {
+    font-size: 11;
+    text-offset: 18;
+}
+way|z20-[width][setting("width_display_text")]::width_text {
+    font-size: 13;
+    text-offset: 20;
+}
+
+/* Show trail_visibility as colors on the path */
+way[highway=~/track|path/][trail_visibility][setting("trail_visibility_display")] {
+    casing-color: eval(
+        tag("trail_visibility") == "excellent" ? "#00cc00" :
+        tag("trail_visibility") == "good" ? "#66cc66" :
+        tag("trail_visibility") == "intermediate" ? "#cccc00" :
+        tag("trail_visibility") == "bad" ? "#ff9900" :
+        tag("trail_visibility") == "horrible" ? "#ff3300" :
+        tag("trail_visibility") == "no" ? "#990000" : "#cccccc"
+    );
+}
+
+/* Show smoothness as colors on the path */
+way[highway=~/track|path/][smoothness][setting("smoothness_display")] {
+    casing-color: eval(
+        tag("smoothness") == "excellent" ? "#ffffff" :
+        tag("smoothness") == "good" ? "#b0e0e6" :
+        tag("smoothness") == "intermediate" ? "#87cefa" :
+        tag("smoothness") == "bad" ? "#ffa500" :
+        tag("smoothness") == "very_bad" ? "#ff4500" :
+        tag("smoothness") == "horrible" ? "#cc0000" :
+        tag("smoothness") == "very_horrible" ? "#800000" :
+        tag("smoothness") == "impassable" ? "#000000" : "#999999"
+    );
 }
 
 /* Indicates no bicycle access or restricted access (no, private, permissive) for tracks and paths */
