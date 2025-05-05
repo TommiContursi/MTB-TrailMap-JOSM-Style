@@ -557,7 +557,7 @@ way[mtb:scale:uphill=5][setting("mtb_uphill_display")]::uphill_difficulty {
 }
 
 /* Text display for trail_visibility */
-way|z18-[trail_visibility][setting("trail_visibility_display_text")]::trail_visibility_text {
+way|z18-[trail_visibility][setting("trail_visibility_text_display")]::trail_visibility_text {
     text: tag("trail_visibility");
     text-color: #000000;
     font-size: 10;
@@ -569,17 +569,17 @@ way|z18-[trail_visibility][setting("trail_visibility_display_text")]::trail_visi
     text-halo-color: #ffffff;
     text-halo-radius: 1;
 }
-way|z19-[trail_visibility][setting("trail_visibility_display_text")]::trail_visibility_text {
+way|z19-[trail_visibility][setting("trail_visibility_text_display")]::trail_visibility_text {
     font-size: 11;
     text-offset: 18;
 }
-way|z20-[trail_visibility][setting("trail_visibility_display_text")]::trail_visibility_text {
+way|z20-[trail_visibility][setting("trail_visibility_text_display")]::trail_visibility_text {
     font-size: 13;
     text-offset: 20;
 }
 
 /* Text display for smoothness */
-way|z18-[smoothness][setting("smoothness_display_text")]::smoothness_text {
+way|z18-[smoothness][setting("smoothness_text_display")]::smoothness_text {
     text: tag("smoothness");
     text-color: #202020;
     font-size: 10;
@@ -591,11 +591,11 @@ way|z18-[smoothness][setting("smoothness_display_text")]::smoothness_text {
     text-halo-color: #ffffff;
     text-halo-radius: 1;
 }
-way|z19-[smoothness][setting("smoothness_display_text")]::smoothness_text {
+way|z19-[smoothness][setting("smoothness_text_display")]::smoothness_text {
     font-size: 11;
     text-offset: 18;
 }
-way|z20-[smoothness][setting("smoothness_display_text")]::smoothness_text {
+way|z20-[smoothness][setting("smoothness_text_display")]::smoothness_text {
     font-size: 13;
     text-offset: 20;
 }
@@ -625,26 +625,28 @@ way|z20-[width][setting("width_display_text")]::width_text {
 /* Show trail_visibility as colors on the path */
 way[highway=~/track|path/][trail_visibility][setting("trail_visibility_display")] {
     casing-color: eval(
-        tag("trail_visibility") == "excellent" ? "#00cc00" :
-        tag("trail_visibility") == "good" ? "#66cc66" :
-        tag("trail_visibility") == "intermediate" ? "#cccc00" :
-        tag("trail_visibility") == "bad" ? "#ff9900" :
-        tag("trail_visibility") == "horrible" ? "#ff3300" :
-        tag("trail_visibility") == "no" ? "#990000" : "#cccccc"
+        tag("trail_visibility") == "excellent" ? "#00cc00" :   /* green */
+        tag("trail_visibility") == "good" ? "#66cc66" :        /* light green */
+        tag("trail_visibility") == "intermediate" ? "#cccc00" :/* yellow */
+        tag("trail_visibility") == "bad" ? "#ff9900" :         /* orange */
+        tag("trail_visibility") == "horrible" ? "#ff3300" :    /* red */
+        tag("trail_visibility") == "no" ? "#990000" :          /* dark red */
+        "#cccccc"                                              /* default / unknown */
     );
 }
 
 /* Show smoothness as colors on the path */
 way[highway=~/track|path/][smoothness][setting("smoothness_display")] {
     casing-color: eval(
-        tag("smoothness") == "excellent" ? "#ffffff" :
-        tag("smoothness") == "good" ? "#b0e0e6" :
-        tag("smoothness") == "intermediate" ? "#87cefa" :
-        tag("smoothness") == "bad" ? "#ffa500" :
-        tag("smoothness") == "very_bad" ? "#ff4500" :
-        tag("smoothness") == "horrible" ? "#cc0000" :
-        tag("smoothness") == "very_horrible" ? "#800000" :
-        tag("smoothness") == "impassable" ? "#000000" : "#999999"
+        tag("smoothness") == "excellent" ? "#00cc00" :         /* green */
+        tag("smoothness") == "good" ? "#66cc66" :              /* light green */
+        tag("smoothness") == "intermediate" ? "#cccc00" :      /* yellow */
+        tag("smoothness") == "bad" ? "#ff9900" :               /* orange */
+        tag("smoothness") == "very_bad" ? "#ff6600" :          /* reddish orange */
+        tag("smoothness") == "horrible" ? "#ff3300" :          /* red */
+        tag("smoothness") == "very_horrible" ? "#990000" :     /* dark red */
+        tag("smoothness") == "impassable" ? "#000000" :        /* black */
+        "#999999"                                              /* default / unknown */
     );
 }
 
