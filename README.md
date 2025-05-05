@@ -1,6 +1,6 @@
 # MTB Trailmap - Map Style for JOSM
 
-**Easily visualize mountain bike trail difficulty, uphill difficulty, trail width, visibility, and surface type with color-coded indicators and text labels while editing OpenStreetMaps with JOSM Editor.**
+**Easily visualize mountain bike trail difficulty, uphill difficulty, trail width, visibility, and surface type and quality with color-coded indicators and text labels while editing OpenStreetMaps with JOSM Editor.**
 
 ![image](https://github.com/user-attachments/assets/43e87e65-d94e-4bf0-84c5-3d065ce6c6aa)
 *Example of how the map style looks on JOSM editor combined with the Potlatch2 map style.*
@@ -14,16 +14,32 @@ Accurate mapping is essential for creating reliable trail maps that bikers can u
 - **[Trail Difficulty](#mtb-difficulty-scale):** See color-coded trail difficulty levels at a glance, ensuring the data is accurate and helpful for bikers.
 - **[Uphill Challenges](#uphill-difficulty-scale):** Display uphill difficulty scales to indicate sections that might be challenging to ascend, helping bikers prepare for steep climbs.
 - **[Surface Conditions](#surface-information):** Show different surface types directly on the map, such as dirt, gravel, or pavement, providing insights into the trail conditions and helping bikers choose the right equipment.
+- **[Surface Quality](#surface-quality):** Visualize the overall smoothness of the trail using color indicators or text. Helps determine how rideable or bumpy a trail segment is, based on the smoothness tag.
 - **[Trail Width](#trail-width):** Visualize trail width to identify narrow single tracks or wider paths, ensuring bikers know what to expect and can plan accordingly.
 - **[Trail Visibility](#trail-visibility):** Assess trail visibility to highlight well-marked routes or paths that might be harder to follow, improving safety and navigation for all users.
 - **[Identify Access Restrictions and Obstacles](#identify-access-restrictions-and-obstacles):** Recognize paths with restricted access or potential obstacles like vegetation or mud, ensuring safer and more informed route planning.
-- **[Customizable Toggles](#customizable-toggles):** Manage the visibility of various trail attributes to focus on the most relevant data for your mapping tasks, helping to manage visual clutter.
+- **[Customizable Toggles](#customizable-toggles):** Control which visual overlays and text labels are active—like trail difficulty, uphill difficulty, surface type, or visibility—to avoid clutter. Useful for focusing on one set of trail data at a time while mapping.
 
 Instead of clicking on each line to view its tags, you can see all relevant information visually represented on the map. This ensures that your edits are accurate and consistent by providing real-time previews, allowing you to see how your changes will appear on dedicated MTB platforms. This eliminates the need to wait for updates from external services, which can take hours or even days.
 
 By using this map style, you can simplify your mapping process, make it more accurate, and reduce errors, helping you create better and more useful maps for yourself and the entire mountain biking community. 
 
 For installation instructions, see the [Installation Guide](#installation).
+
+---
+
+## Latest Changes (v1.2.1 – 2025-05-05)
+
+- Grouped toggle settings for better organization in JOSM UI
+- New support for `smoothness=` and `width=` tag rendering
+- Text labels now available for `trail_visibility=`
+- Improved font sizes, offsets, and overall label layout
+- Renamed and clarified setting labels for better usability
+- Default setting states updated to reduce clutter on first use
+
+⚠️ **Tip:** For best results, activate only one main overlay (such as trail difficulty, surface, or visibility) at a time. Enabling multiple layers that use the same line coloring may result in visual overlap or conflicting styles. Text labels may also stack or become unreadable if too many are enabled at once.
+
+📄 [See full changelogs and previous releases on the Releases page](https://github.com/TommiContursi/MTB-TrailMap-JOSM-Style/releases).
 
 ---
 
@@ -97,17 +113,17 @@ Adds a secondary line to indicate uphill difficulty using the `mtb:scale:uphill`
 ![image](https://github.com/user-attachments/assets/25744ade-47e6-4dd3-87bf-1ffab9a70be8)
 
 ### Trail Visibility
-Dash patterns based on the `trail_visibility` tag, showing how visible and well-marked the trail is. This ranges from excellent visibility to no visibility. [Learn more about the `trail_visibility` tag on the OpenStreetMap wiki](https://wiki.openstreetmap.org/wiki/Key:trail_visibility).
+Dash patterns based on the `trail_visibility` tag, showing how visible and well-marked the trail is. This ranges from excellent visibility to no visibility. When enabled, the trail’s opacity also changes based on its trail_visibility value, helping users spot hard-to-see paths more intuitively.  [Learn more about the `trail_visibility` tag on the OpenStreetMap wiki](https://wiki.openstreetmap.org/wiki/Key:trail_visibility).
 
 ![image](https://github.com/user-attachments/assets/3f3f14e9-efa3-4e6f-970b-8e6cb97dc9c0)
 
 ### Trail Width
-Variations based on the `width` tag, indicating the physical width of the trail. This information is useful for understanding how wide a trail is and whether it can accommodate different types of users or activities. [Learn more about the `width` tag on the OpenStreetMap wiki](https://wiki.openstreetmap.org/wiki/Key:width).
+Variations based on the `width` tag, indicating the physical width of the trail. This information is useful for understanding how wide a trail is and whether it can accommodate different types of users or activities. Trail width values can also be shown as text labels next to the paths, depending on the selected settings. [Learn more about the `width` tag on the OpenStreetMap wiki](https://wiki.openstreetmap.org/wiki/Key:width).
 
 ![image](https://github.com/user-attachments/assets/d7156dde-33aa-4abb-b991-98abe888d211)
 
 ### Surface Information
-Color-coded based on the `surface` tag, indicating the type of surface, such as paved, gravel, or dirt. This helps users anticipate the trail conditions and choose the right equipment. [Learn more about the `surface` tag on the OpenStreetMap wiki](https://wiki.openstreetmap.org/wiki/Key:surface).
+Color-coded based on the `surface` tag, indicating the type of surface, such as paved, gravel, or dirt. This helps users anticipate the trail conditions and choose the right equipment. When enabled in settings, surface type can also be shown as text labels directly on or next to the trail. [Learn more about the `surface` tag on the OpenStreetMap wiki](https://wiki.openstreetmap.org/wiki/Key:surface).
 
 ![image](https://github.com/user-attachments/assets/eb0a4ba7-45d7-41ce-b634-57199580b1b2)
 
@@ -118,9 +134,9 @@ Indicators based on `access`, `bicycle`, and `obstacle` tags, helping users reco
 
 ### Customizable Toggles
 
-Once the style is applied, you can enable or disable the visibility of various elements such as MTB difficulty scale, uphill difficulty scale, and surface information. Adjusting these settings can help you manage the visual clutter and focus on the most relevant data for your mapping tasks. Please take a look at the section below for detailed instructions on using the toggle options.
+Once the style is applied, you can enable or disable the visibility of various trail attributes such as MTB difficulty, uphill difficulty, surface, visibility, smoothness, and path width. Adjusting these settings can help you manage the visual clutter and focus on the most relevant data for your mapping tasks. Please take a look at the section below for detailed instructions on using the toggle options.
 
-![image](https://github.com/user-attachments/assets/4a99d052-1e08-4727-bd41-a7177beb0bf6)
+![image](https://github.com/user-attachments/assets/06690b34-9e0a-424d-abb0-38c5f4f2484b)
 
 To access and modify these settings:
 
@@ -131,18 +147,71 @@ To access and modify these settings:
 5. Click on the wrench icon next to the style name to open the style settings. Optionally, you can right-click the style name and find the menu from there.
 7. Here, you can see various toggle options:
 
-- **Display MTB Difficulty on Paths:** Toggle the display of color-coded MTB difficulty scale on paths. This setting shows the trail difficulty levels using different colors based on the `mtb:scale` tag. This feature closely replicates Trailmap.fi.
-- **Text for MTB Difficulty on Paths:** Toggle the display of MTB difficulty scale text over the paths. This setting adds text labels indicating the difficulty level of the trails. **Note:** This feature is not available on Trailmap.fi. Disabling this option will provide a more Trailmap-like experience. However, enabling it can help quickly identify trail difficulties with text labels.
-- **Display MTB Uphill Difficulty on Separate Paths:** Toggle the display of the color-coded MTB uphill difficulty scale next to the paths. This setting shows uphill difficulty levels using different colors based on the `mtb:scale:uphill` tag on a separate line adjacent to the main path. **Note:** This feature is not available on Trailmap.fi. Disabling this option will provide a more Trailmap-like experience. Enabling it can help mountain bikers prepare for challenging uphill sections.
-- **Text for MTB Uphill Difficulty on Separate Paths:** Toggle the display of MTB uphill difficulty scale text next to the paths. This setting adds text labels indicating the uphill difficulty level of the trails on a separate line adjacent to the main path. **Note:** This feature is not available on Trailmap.fi. Disabling this option will provide a more Trailmap-like experience. Enabling it provides clear indications of uphill challenges.
-- **Display Surface on Separate Paths:** Toggle the display of surface information on a separate path layer next to the paths. This setting shows surface types such as paved, gravel, or dirt on a separate line adjacent to the main path. **Note:** This feature is not available on Trailmap.fi. Disabling this option will provide a more Trailmap-like experience. Enabling it helps users understand the trail surfaces more clearly.
-- **Display Surface on Paths:** Toggle the display of surface information directly on the paths. This setting overlays the surface type information on the same line as the paths. **Note that the surface coloring can't be seen if the MTB Difficulty Scale option is enabled.** **Note:** This feature is not available on Trailmap.fi. Disabling this option will provide a more Trailmap-like experience. Enabling it provides detailed surface information directly on the trails.
-- **Text for Surface on Paths:** Toggle the display of surface-type text next to the paths. This setting adds text labels indicating the type of surface (e.g., paved, gravel) along the trails. **Note:** This feature is not available on Trailmap.fi. Disabling this option will provide a more Trailmap-like experience. Enabling it offers clear text indications of the surface type.
-- **Display Path Opacity Based on Visibility:** Toggle path opacity based on trail visibility. This setting adjusts the transparency of paths to reflect how visible they are, based on the `trail_visibility` tag. **Note:** This feature is not available on Trailmap.fi. Disabling this option will provide a more Trailmap-like experience. Enabling it helps to quickly assess trail visibility.
+#### MTB Difficulty (`mtb:scale`)
+
+- **Color-coded line**  
+  Shows the MTB difficulty as a colored line directly on the trail. Matches Trailmap.fi style and is usually the main indicator for trail difficulty.  
+  _Default: ON_
+- **Text label**  
+  Adds a small text label (like `S2`) on the trail, showing the difficulty number. Helpful when colors are hard to distinguish or trails are close together.  
+  _Default: ON_
+
+#### MTB Uphill Difficulty (`mtb:scale:uphill`)
+- **Separate color-coded line**  
+  Adds a second line next to the main trail, showing uphill difficulty with different colors. Makes steep or technical climbs stand out clearly.  
+  _Default: ON_
+- **Text label**  
+  Shows the uphill difficulty as text (like `↑ S3`) beside the trail.  
+  _Default: ON_
+
+#### Path Surface Type (`surface`)
+- **Color-coded line**  
+  Shows the trail surface (like gravel, asphalt, dirt) using color. This only works if MTB difficulty color is disabled.  
+  _Default: ON_
+- **Text label**  
+  Adds the surface name (e.g., `sand`, `compacted`) as text on the trail.  
+  _Default: ON_
+- **Separate color-coded line**  
+  Draws surface type on a second line next to the trail. Works even when MTB or uphill difficulty coloring is enabled.  
+  _Default: OFF_
+
+#### Trail Visibility (`trail_visibility`)
+- **Color-coded line**  
+  Changes the color of the trail to show how visible it is in real life (from excellent to no visible path).  
+  _Default: OFF_
+- **Text label**  
+  Adds trail visibility info (like `intermediate` or `no`) as text next to the trail.  
+  _Default: OFF_
+- **Opacity based on visibility**  
+  Fades out trails that are harder to follow, based on the `trail_visibility` tag.  
+  _Default: ON_
+
+
+#### Surface Quality (`smoothness`)
+- **Color-coded line**  
+  Shows how smooth or rough the trail is with different colors.  
+  _Default: OFF_
+- **Text label**  
+  Adds the smoothness value (e.g. `intermediate`, `very_bad`) as text on the trail.  
+  _Default: OFF_
+
+#### Path Width (`width`)
+- **Text label**  
+  Adds the trail width (like `1.2 m`) as text on the trail.  
+  _Default: OFF_
+
 
 > [!IMPORTANT]
-> By default, all these options are enabled except `Display Surface on Separate Path`. You can disable any of these options based on your preference. If you have all the options enabled and you are examining a map with many MTB trails, especially those that also include `mtb:scale:uphill` data, the view can become very cluttered. Disabling unnecessary settings is recommended to improve clarity. Adjust the visibility of trail attributes according to your specific needs to create a more manageable and clear map view. This will help you focus on the most relevant information and ensure an efficient mapping process.
-
+> Avoid enabling too many overlapping data layers at once, especially those that use the same line colors or label positions. 
+> 
+> For example, `mtb:scale`, `surface`, `smoothness`, and `trail_visibility` all use the same line coloring. If you enable several at the same time, the colors may overwrite each other or create a misleading impression (e.g., it may look like you're seeing surface info when it's actually MTB difficulty).
+> 
+> Similarly, if you enable multiple text labels (such as , `surface`, `smoothness`, `trail_visibility`, and `width`) they may overlap and clutter the view, making it harder to read and interpret.
+> 
+> **Recommendation:**  
+> Enable only one of the main line-based overlays (`mtb:scale`, `surface`, `trail_visibility`, or `smoothness`) at a time. Some combinations, like `mtb:scale` and `mtb:scale:uphill`, work well together since they use different lines.  
+> 
+> You can also enable text labels for more context, but consider showing only the ones that are essential for your current editing task.
 ---
 
 ## Project Background
@@ -201,14 +270,15 @@ Paths are color-coded based on their MTB uphill difficulty scale, displayed as a
 
 ### Path Visibility Based Styles
 
-Paths with varying visibility are displayed with different dash patterns and opacity levels. More information can be found on the [OpenStreetMap wiki](https://wiki.openstreetmap.org/wiki/Key:trail_visibility):
-- `trail_visibility=excellent`: Clearly visible path with a long dash pattern of 10 pixels followed by a gap of 6 pixels.
-- `trail_visibility=good`: Good visibility with the same long dash pattern of 10 pixels followed by a gap of 6 pixels.
-- `trail_visibility=intermediate`: Moderate visibility, slightly harder to follow, with a short dash pattern of 2 pixels followed by a gap of 2 pixels.
-- `trail_visibility=bad`: Poor visibility, difficult to follow, also with a short dash pattern of 2 pixels followed by a gap of 2 pixels.
-- `trail_visibility=horrible`: Very poor visibility, very difficult to follow, with the same short dash pattern of 2 pixels followed by a gap of 2 pixels.
-- `trail_visibility=no`: No visible path, extremely challenging, with a short dash pattern of 2 pixels followed by a gap of 2 pixels.
+Paths with varying visibility are displayed with different dash patterns, opacity levels, and casing colors. More information can be found on the [OpenStreetMap wiki](https://wiki.openstreetmap.org/wiki/Key:trail_visibility):
 
+- `trail_visibility=excellent`: Bright Green `#00cc00` – Clearly visible path with a long dash pattern of 10 pixels followed by a gap of 6 pixels.
+- `trail_visibility=good`: Light Green `#66cc66` – Good visibility with the same long dash pattern of 10 pixels followed by a gap of 6 pixels.
+- `trail_visibility=intermediate`: Yellow `#cccc00` – Moderate visibility, slightly harder to follow, with a short dash pattern of 2 pixels followed by a gap of 2 pixels.
+- `trail_visibility=bad`: Orange `#ff9900` – Poor visibility, difficult to follow, also with a short dash pattern of 2 pixels followed by a gap of 2 pixels.
+- `trail_visibility=horrible`: Red `#ff3300` – Very poor visibility, very difficult to follow, with the same short dash pattern of 2 pixels followed by a gap of 2 pixels.
+- `trail_visibility=no`: Dark Red `#990000` – No visible path, extremely challenging, with a short dash pattern of 2 pixels followed by a gap of 2 pixels.
+  
 ### Path Width
 
 Paths are displayed with varying widths based on their `width` tag, including casing. More information can be found on the [OpenStreetMap wiki](https://wiki.openstreetmap.org/wiki/Key:width):
@@ -248,3 +318,15 @@ Paths are color-coded based on their surface type, with text labels displaying t
 - `surface=mud`: Saddle Brown `#8b4513`
 - `surface=ground`: Saddle Brown `#8b4513`
 - `surface=rock`: Gray `#808080`
+
+### Surface Quality (smoothness)
+
+Paths are color-coded based on the `smoothness=` tag to indicate how smooth or rough a trail is. This helps assess bike suitability and expected comfort level.
+- `smoothness=excellent`: Green #00cc00 – Smooth like asphalt, suitable for all bicycles.
+- `smoothness=good`: Light Green #66cc66 – Mostly smooth, few irregularities.
+- `smoothness=intermediate`: Yellow #cccc00 – Noticeable irregularities, but still rideable.
+- `smoothness=bad`: Orange #ff9900 – Rough surface, suitable for mountain bikes only.
+- `smoothness=very_bad`: Reddish Orange #ff6600 – Difficult terrain, challenging for most riders.
+- `smoothness=horrible`: Red #ff3300 – Extremely rough, mostly unrideable.
+- `smoothness=very_horrible`: Dark Red #990000 – Dangerous or impractical to ride.
+- `smoothness=impassable`: Black #000000 – Not passable even on foot.
