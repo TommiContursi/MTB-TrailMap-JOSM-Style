@@ -3,7 +3,7 @@ meta
     title: "MTB Trailmap (MTB Difficulty, uphill difficulty, path width, visibility and surface)";
     icon: "presets/sport/cycling.svg";
     description: "Easily visualize MTB trail difficulty, uphill difficulty, trail width, visibility, and surface type with color-coded indicators and Text labels. Inspired by Trailmap.fi, this style ensures your edits are accurately reflected, providing clear and detailed trail information for mountain biking. Includes toggle options allow you to choose which trail attributes are displayed on the map layer. Designed to work seamlessly with JOSM's default styles, such as JOSM Standard and Potlatch 2.";
-    version: "1.2.0_2025-05-05";
+    version: "1.2.1_2025-05-05";
     author: "Tommi Contursi";
     link: "https://github.com/TommiContursi/MTB-TrailMap-JOSM-Style";
     min-josm-version: 7110;
