@@ -3,7 +3,7 @@ meta
     title: "MTB Trailmap (MTB Difficulty, uphill difficulty, path width, visibility and surface)";
     icon: "presets/sport/cycling.svg";
     description: "Easily visualize MTB trail difficulty, uphill difficulty, trail width, visibility, and surface type with color-coded indicators and Text labels. Inspired by Trailmap.fi, this style ensures your edits are accurately reflected, providing clear and detailed trail information for mountain biking. Includes toggle options allow you to choose which trail attributes are displayed on the map layer. Designed to work seamlessly with JOSM's default styles, such as JOSM Standard and Potlatch 2.";
-    version: "1.2.1_2025-05-05";
+    version: "1.2.2_2025-05-07";
     author: "Tommi Contursi";
     link: "https://github.com/TommiContursi/MTB-TrailMap-JOSM-Style";
     min-josm-version: 7110;
@@ -112,7 +112,7 @@ setting::smoothness_text_display {
 }
 
 /* Path Width */
-setting::width_text {
+setting::width_text_display {
   default: false;
   type: boolean;
   label: "Text label (width)";
@@ -601,7 +601,7 @@ way|z20-[smoothness][setting("smoothness_text_display")]::smoothness_text {
 }
 
 /* Text display for width */
-way|z18-[width][setting("width_display_text")]::width_text {
+way|z18-[width][setting("width_text_display")]::width_text {
     text: concat(tag("width"), " m");
     text-color: #000000;
     font-size: 10;
@@ -613,11 +613,11 @@ way|z18-[width][setting("width_display_text")]::width_text {
     text-halo-color: #ffffff;
     text-halo-radius: 1;
 }
-way|z19-[width][setting("width_display_text")]::width_text {
+way|z19-[width][setting("width_text_display")]::width_text {
     font-size: 11;
     text-offset: 18;
 }
-way|z20-[width][setting("width_display_text")]::width_text {
+way|z20-[width][setting("width_text_display")]::width_text {
     font-size: 13;
     text-offset: 20;
 }
